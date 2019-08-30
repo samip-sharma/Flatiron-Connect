@@ -15,7 +15,9 @@ let initialState={
     events:[],
     mod_tweets:[],
     all_tweets:[],
-    all_friends:[]
+    all_friends:[],
+    all_mod_events:[],
+    all_mod_friends:[]
 }
 
 const middleware=[thunk]
