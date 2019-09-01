@@ -1,5 +1,5 @@
 import {HEADERS,API} from '../constants/constants'
-import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET} from './type'
+import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER} from './type'
 
 export const login=(login_state)=>{
     return function(dispatch){
@@ -14,6 +14,7 @@ export const login=(login_state)=>{
         .then(data=>{
             if(!data.error){
                 localStorage.token=data.token
+                document.cookie=`${localStorage.token}`
             localStorage.current_user=data.user_id
             localStorage.clicked_user=data.user_id
             localStorage.mod_id=data.mod_id
@@ -124,8 +125,78 @@ export const addNewTweet=(state)=>{
 }
 
 
-    export const getModFriends=()=>{
-        return function(dispatch){
-            // fetch(API+"mod")
-        }
+export const getModFriends=()=>{
+    return function(dispatch){
+        fetch(API+`/user_mods/${localStorage.mod_id}`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":GET_MOD_FRIENDS,payload:data})
+            }
+        })
     }
+}
+
+
+
+export const getAllMod=()=>{
+    return function(dispatch){
+        fetch(API+`/mods`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":GET_ALL_MOD,payload:data})
+            }
+        })
+    }
+}
+
+
+
+export const getMyMod=()=>{
+    return function(dispatch){
+        fetch(API+`/mods/${localStorage.mod_id}`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":GET_MY_MOD,payload:data})
+            }
+        })
+    }
+}
+
+
+export const getCurrentUser=()=>{
+    return function(dispatch){
+        fetch(API+`/users/${localStorage.current_user}`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            // debugger
+            if(!data.error){
+                dispatch({"type":GET_CURRENT_USER,payload:data})
+            }
+        })
+    }
+}
+
+
+
+export const editCurrentUser=(state)=>{
+    return function(dispatch){
+        fetch(API+`/users/${localStorage.current_user}`,{
+            method:"PATCH",
+            "headers":HEADERS,
+            body:JSON.stringify(
+                state
+            )
+        })
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                // debugger
+                localStorage.mod_id=state.mod_id
+                dispatch({"type":EDIT_CURRENT_USER,payload:data})
+            }
+        })
+    }
+}

@@ -10,14 +10,16 @@ import {BrowserRouter} from 'react-router-dom'
 import {createStore, applyMiddleware, compose } from 'redux'
 
 let initialState={
-    current_user:null,
+    current_user:{},
     tweets:[],
     events:[],
     mod_tweets:[],
     all_tweets:[],
     all_friends:[],
     all_mod_events:[],
-    all_mod_friends:[]
+    all_mod_friends:[],
+    all_mod:[],
+    my_mod:{}
 }
 
 const middleware=[thunk]

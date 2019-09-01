@@ -28,7 +28,7 @@ export default class Home extends React.Component{
 
     render(){
         if (!localStorage.token) this.props.history.push("/")
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <React.Fragment>
                 <Navbar />
@@ -37,7 +37,6 @@ export default class Home extends React.Component{
                     <input value={this.state.content} onChange={this.handleInputChange} type="text" name="content" placeholder="Anything in mind?.." />
                     <input type="submit" value="post" />
                 </form>
-
                 {
                 this.props.all_tweets.map((tweet)=> {
                 return <div className="each-Tweet"> 

@@ -1,13 +1,15 @@
-import {LOGIN,REGISTER,ADD_NEW_TWEET,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,GET_MOD_FRIENDS} from './type.js'
+import {LOGIN,REGISTER,ADD_NEW_TWEET,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER} from './type.js'
 
 const initialState={
-    current_user:null,
+    current_user:{},
     all_tweets:[],
     events:[],
     mod_tweets:[],
     all_friends:[],
     all_mod_events:[],
-    all_mod_friends:[]
+    all_mod_friends:[],
+    all_mod:[],
+    my_mod:{}
 
 }
 
@@ -51,6 +53,26 @@ export default function reducer(state=initialState,action){
             return{
                 ...state,
                 all_mod_friends:action.payload
+            }
+        case GET_ALL_MOD:
+            return {
+                ...state,
+                all_mod:action.payload
+            }
+        case GET_MY_MOD:
+            return{
+                ...state,
+                my_mod:action.payload
+            }
+        case GET_CURRENT_USER:
+            return{
+                ...state,
+                current_user:action.payload
+            }
+        case EDIT_CURRENT_USER:
+            return{
+                ...state,
+                current_user:action.payload
             }
         default:
             return state

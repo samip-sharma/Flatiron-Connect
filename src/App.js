@@ -5,10 +5,14 @@ import Register from './component/Register'
 import Calender from './component/Calender'
 import Home from './component/Home'
 import FriendList from './component/FriendList'
+import Profile from './component/Profile'
+import Setting from './component/Setting'
+import Admin from './component/Admin'
 
 import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {login,register, allTweets,getAllFriends,getModEvents,addNewEvent,addNewTweet} from './redux/action'
+import MyMode from './component/MyMode';
 
 class App extends React.Component {
 
@@ -41,6 +45,11 @@ class App extends React.Component {
         <Route exact path='/home' render={(routerProps)=> <Home allTweets={this.props.allTweets} addNewTweet={this.props.addNewTweet} getModEvents={this.props.getModEvents} all_tweets={this.props.all_tweets}  {...routerProps}  />} />
         <Route exact path='/friends' render={(routerProps)=> <FriendList all_friends={this.props.all_friends} getAllFriends={this.props.getAllFriends}  {...routerProps}  />} />
         <Route  path='/register' render={(routerProps)=> <Register  {...routerProps} handleRegisterSubmit={this.handleRegisterSubmit} />} />
+        <Route  path='/profile' render={(routerProps)=> <Profile  {...routerProps}  />} />
+        <Route  path='/mymod' render={(routerProps)=> <MyMode  {...routerProps}  />} />
+        <Route  path='/setting' render={(routerProps)=> <Setting  {...routerProps}  />} />
+        <Route  path='/admin' render={(routerProps)=> <Admin  {...routerProps}  />} />
+
       </Switch>
     )
   }
