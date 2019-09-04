@@ -26,6 +26,11 @@ export default class Home extends React.Component{
         this.props.addNewTweet(this.state)
     }
 
+    handleUserClick=(id)=>{
+        localStorage.clicked_user=id
+        this.props.history.push("/profile")
+    }
+
     render(){
         if (!localStorage.token) this.props.history.push("/")
         // console.log(this.props)
@@ -40,7 +45,8 @@ export default class Home extends React.Component{
                 {
                 this.props.all_tweets.map((tweet)=> {
                 return <div className="each-Tweet"> 
-                {tweet.user.name}-{tweet.content}
+                <span onClick={()=>this.handleUserClick(tweet.user.id)}>{tweet.user.name}</span>
+                -{tweet.content}
                 </div>}
                 )}
             </React.Fragment>

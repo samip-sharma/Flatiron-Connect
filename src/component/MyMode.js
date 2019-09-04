@@ -9,12 +9,20 @@ class MyMode extends React.Component{
     componentDidMount(){
         this.props.getModFriends()
     }
+
+    handleUserClick=(id)=>{
+        localStorage.clicked_user=id
+        this.props.history.push("/profile")
+    }
     render(){
         let arr=this.props.all_mod_friends.filter((user)=>{
-           return parseInt(user.id)!==parseInt(localStorage.current_user)
+            // debugger
+            return user.user_mod.accepted
+        //    return parseInt(user.id)!==parseInt(localStorage.current_user)
+        return user
         })
          arr=arr.map((user)=>{
-           return <li>{user.name}<button>X</button></li>
+           return <li onClick={()=>this.handleUserClick(user.id)}>{user.name}</li>
         })
         console.log(this.props)
         return(

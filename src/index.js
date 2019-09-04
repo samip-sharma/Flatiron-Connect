@@ -19,7 +19,10 @@ let initialState={
     all_mod_events:[],
     all_mod_friends:[],
     all_mod:[],
-    my_mod:{}
+    my_mod:{},
+    all_pending_user:[],
+    all_users:[],
+    loggedIn_user:{}
 }
 
 const middleware=[thunk]

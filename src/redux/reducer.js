@@ -1,7 +1,8 @@
-import {LOGIN,REGISTER,ADD_NEW_TWEET,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER} from './type.js'
+import {LOGIN,REGISTER,ADD_NEW_TWEET,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER} from './type.js'
 
 const initialState={
     current_user:{},
+    loggedIn_user:{},
     all_tweets:[],
     events:[],
     mod_tweets:[],
@@ -9,7 +10,9 @@ const initialState={
     all_mod_events:[],
     all_mod_friends:[],
     all_mod:[],
-    my_mod:{}
+    my_mod:{},
+    all_pending_user:[],
+    all_users:[]
 
 }
 
@@ -73,6 +76,61 @@ export default function reducer(state=initialState,action){
             return{
                 ...state,
                 current_user:action.payload
+            }
+        case CREATE_NEW_MOD:
+            return{
+                ...state,
+                all_mod:[...state.all_mod,action.payload]
+            }
+
+        case GET_PENDING_MOD_USER:
+        return{
+            ...state,
+            all_pending_user:action.payload
+
+        }
+        case ACCEPT_PENDING_USER:
+            return{
+                ...state,
+                all_pending_user:action.payload
+            }
+        case REJECT_PENDING_USER:
+            return{
+                ...state,
+                all_pending_user:action.payload
+            }
+        case ALL_USERS:
+            return{
+                ...state,
+                all_users:action.payload
+            }
+        case ADD_FRIEND:
+            return{
+                ...state,
+                all_friends:[...state.all_friends,action.payload]
+            }
+        case REMOVE_FRIEND:
+            return{
+                ...state,
+                all_friends:action.payload
+            }
+        case TROGGLE_WORKING:
+            return{
+                ...state,
+                current_user:action.payload
+            }
+        case ADD_BLOG:
+            return{
+                ...state,
+                current_user:{
+                    ...state.current_user,
+                    blogs:[...state.current_user.blogs,action.payload]
+                }
+            }
+        case GET_LOGGED_IN_USER:
+            return{
+                ...state,
+                loggedIn_user:action.payload
             }
         default:
             return state
