@@ -36,9 +36,9 @@ class Calender extends Component {
   }
 
   componentDidMount=()=>{
-    if(this.props.all_mod_events.length===0){
+    // if(this.props.all_mod_events.length===0){
       this.props.getModEvents()
-    }
+    // }
   }
 
   
@@ -56,12 +56,9 @@ class Calender extends Component {
           <Calendar
             
             localizer={localizer}
-            // startAccessor="start"
-            // endAccessor="end"
             getNow={() => new Date()}
             events={this.props.all_mod_events}
             style={{ height: "50vh" }}
-            // onSelectEvent={console.log}
           />
         </div>
         <br></br><br></br><br></br>

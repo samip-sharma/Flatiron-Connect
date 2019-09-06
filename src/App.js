@@ -8,6 +8,7 @@ import FriendList from './component/FriendList'
 import Profile from './component/Profile'
 import Setting from './component/Setting'
 import Admin from './component/Admin'
+import Chat from './component/Chat'
 
 import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -49,6 +50,7 @@ class App extends React.Component {
         <Route  path='/mymod' render={(routerProps)=> <MyMode  {...routerProps}  />} />
         <Route  path='/setting' render={(routerProps)=> <Setting  {...routerProps}  />} />
         <Route  path='/admin' render={(routerProps)=> <Admin  {...routerProps}  />} />
+        <Route  path='/chat' render={(routerProps)=> <Chat  {...routerProps}  />} />
 
       </Switch>
     )

@@ -29,6 +29,7 @@ class Navbar extends React.Component {
                     null
                 
                     }
+                    <Link to="/chat" >Chat-</Link>
                     <Link to="/" onClick={this.handleLogout} >logout</Link>
                 </div>
         )

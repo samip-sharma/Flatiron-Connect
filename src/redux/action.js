@@ -1,5 +1,5 @@
 import {HEADERS,API} from '../constants/constants'
-import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER} from './type'
+import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER,GET_TWO_USERS_CHAT,SEND_USER_MESSAGE} from './type'
 
 export const login=(login_state)=>{
     return function(dispatch){
@@ -12,9 +12,9 @@ export const login=(login_state)=>{
         })
         .then(resp=>resp.json())
         .then(data=>{
-            if(!data.error){
-                localStorage.token=data.token
-                document.cookie=`${localStorage.token}`
+            if(data.token){
+            localStorage.token=data.token
+            document.cookie=`${localStorage.token}`
             localStorage.current_user=data.user_id
             localStorage.clicked_user=data.user_id
             localStorage.mod_id=data.mod_id
@@ -55,7 +55,7 @@ export const allTweets=()=>{
 
 export const getAllFriends=()=>{
     return function(dispatch){
-        fetch(API+`/follows/${localStorage.clicked_user}`)
+        fetch(API+`/follows/${localStorage.current_user}`)
         .then(resp=>resp.json())
         .then(data=>{
             if(!data.error){
@@ -197,7 +197,7 @@ export const getLoggedInUser=()=>{
 
 export const editCurrentUser=(state)=>{
     return function(dispatch){
-        fetch(API+`/users/${localStorage.current_user}`,{
+        fetch(API+`/users/${localStorage.loggedIn_user}`,{
             method:"PATCH",
             "headers":HEADERS,
             body:JSON.stringify(
@@ -397,6 +397,43 @@ export const addBlog=(title,url)=>{
           .then(data=>{
             if(!data.error){
                 dispatch({"type":ADD_BLOG,payload:data})
+            }
+        })
+    }
+}
+
+
+
+export const getTwoUsersChat=(receiver_id)=>{
+    return function(dispatch){
+        fetch(API+`/twoUsersChat/${localStorage.current_user}/${receiver_id}`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":GET_TWO_USERS_CHAT,payload:data})
+            }
+        })
+    }
+}
+
+export const sendUserMessage=(id,text)=>{
+    return function(dispatch){
+        fetch(API+`/two_users_messages/`,{
+            method:"POST",
+            headers:{
+              ...HEADERS,
+              "Authorization":localStorage.token
+            },
+            body:JSON.stringify(
+             { chat_id:id,
+                text:text
+              }
+            )
+          })
+        .then(resp=>resp.json())
+        .then(data=>{ 
+            if(!data.error){
+                dispatch({"type":SEND_USER_MESSAGE,payload:data})
             }
         })
     }

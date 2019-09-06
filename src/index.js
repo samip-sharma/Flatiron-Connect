@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux'
-import Reducer from './redux/reducer'
 import thunk from 'redux-thunk'
 import {BrowserRouter} from 'react-router-dom'
 import {createStore, applyMiddleware, compose } from 'redux'
+import reducer from './redux/reducer';
 
 let initialState={
     current_user:{},
@@ -22,19 +22,12 @@ let initialState={
     my_mod:{},
     all_pending_user:[],
     all_users:[],
-    loggedIn_user:{}
+    loggedIn_user:{},
+    two_users_chat:[]
 }
 
-const middleware=[thunk]
-
-const store = createStore(
-    Reducer,
-    initialState,
-    compose(
-        applyMiddleware(...middleware),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-        )
-    );
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
 

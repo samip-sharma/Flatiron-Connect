@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getAllMod,getMyMod,getCurrentUser,editCurrentUser} from '../redux/action'
+import {getAllMod,getMyMod,getLoggedInUser,editCurrentUser} from '../redux/action'
 import NavBar from './Navbar'
 
 
@@ -27,7 +27,7 @@ import NavBar from './Navbar'
 
     componentDidMount(){
         this.props.getAllMod()
-        this.props.getCurrentUser()
+        this.props.getLoggedInUser()
     }
 
     handleSubmit= (e)=>{
@@ -42,8 +42,8 @@ import NavBar from './Navbar'
             <React.Fragment>
                 <NavBar />
             <form  onSubmit={this.handleSubmit}>
-                name:<input onChange={this.handleFormChange} type="text" value={this.state.name} name="name" placeholder={this.props.current_user.name} />
-                User Name:<input onChange={this.handleFormChange} type="text" value={this.state.user_name} name="user_name" placeholder={this.props.current_user.user_name} />
+                name:<input onChange={this.handleFormChange} type="text" value={this.state.name} name="name" placeholder={this.props.loggedIn_user.name} />
+                User Name:<input onChange={this.handleFormChange} type="text" value={this.state.user_name} name="user_name" placeholder={this.props.loggedIn_user.user_name} />
                 Password:<input onChange={this.handleFormChange} type="password" value={this.state.password} name="password" />
 
            Mod <select onChange={this.handleSelectChange} value={this.state.mod_id}>
@@ -64,15 +64,15 @@ const mapStateToProps=(state)=>{
     return {
         all_mod:state.all_mod,
         my_mod:state.my_mod,
-        current_user:state.current_user
+        loggedIn_user:state.loggedIn_user,
     }
   }
   
   const mapDispatchToProps = {
     getAllMod:getAllMod,
     getMyMod:getMyMod,
-    getCurrentUser:getCurrentUser,
-    editCurrentUser:editCurrentUser
+    getLoggedInUser:getLoggedInUser,
+    editCurrentUser:editCurrentUser,
   }
   
 export default connect(mapStateToProps,mapDispatchToProps)(Setting)
