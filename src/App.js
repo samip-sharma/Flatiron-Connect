@@ -37,13 +37,12 @@ class App extends React.Component {
      }
    })
   }
-
   render() {
     return (
       <Switch>
         <Route exact path='/' render={(routerProps)=> <Login  {...routerProps} handleLoginSubmit={this.handleLoginSubmit} />} />
         <Route exact path='/calender' render={(routerProps)=> <Calender addNewEvent={this.props.addNewEvent} getModEvents={this.props.getModEvents} all_mod_events={this.processEventDates()}  {...routerProps}  />} />
-        <Route exact path='/home' render={(routerProps)=> <Home allTweets={this.props.allTweets} addNewTweet={this.props.addNewTweet} getModEvents={this.props.getModEvents} all_tweets={this.props.all_tweets}  {...routerProps}  />} />
+        <Route exact path='/home' render={(routerProps)=> <Home loggedIn_user={this.props.loggedIn_user} allTweets={this.props.allTweets} addNewTweet={this.props.addNewTweet} getModEvents={this.props.getModEvents} all_tweets={this.props.all_tweets}   {...routerProps}  />} />
         <Route exact path='/friends' render={(routerProps)=> <FriendList all_friends={this.props.all_friends} getAllFriends={this.props.getAllFriends}  {...routerProps}  />} />
         <Route  path='/register' render={(routerProps)=> <Register  {...routerProps} handleRegisterSubmit={this.handleRegisterSubmit} />} />
         <Route  path='/profile' render={(routerProps)=> <Profile  {...routerProps}  />} />
@@ -64,7 +63,8 @@ const mapStateToProps=(state)=>{
     current_user:state.current_user,
     all_tweets:state.all_tweets,
     all_friends:state.all_friends,
-    all_mod_events:state.all_mod_events
+    all_mod_events:state.all_mod_events,
+    loggedIn_user:state.loggedIn_user
   }
 }
 

@@ -41,18 +41,25 @@ import NavBar from './Navbar'
         return(
             <React.Fragment>
                 <NavBar />
-            <form  onSubmit={this.handleSubmit}>
-                name:<input onChange={this.handleFormChange} type="text" value={this.state.name} name="name" placeholder={this.props.loggedIn_user.name} />
-                User Name:<input onChange={this.handleFormChange} type="text" value={this.state.user_name} name="user_name" placeholder={this.props.loggedIn_user.user_name} />
-                Password:<input onChange={this.handleFormChange} type="password" value={this.state.password} name="password" />
-
-           Mod <select onChange={this.handleSelectChange} value={this.state.mod_id}>
-                {this.props.all_mod.map((mod)=> <option value={mod.id}>{mod.name}</option> )}
-            </select>
-
-            <input type="submit" value="edit" />
-
-            </form>
+            <div className="edit-form-container">
+                <form className="edit-form"  onSubmit={this.handleSubmit}>
+                    <div>
+                        Name:<input onChange={this.handleFormChange} type="text" value={this.state.name} name="name" placeholder={this.props.loggedIn_user.name} />
+                    </div>
+                    <div>
+                        User Name:<input onChange={this.handleFormChange} type="text" value={this.state.user_name} name="user_name" placeholder={this.props.loggedIn_user.user_name} />
+                    </div>
+                    <div>
+                        Password:<input onChange={this.handleFormChange} type="password" value={this.state.password} name="password" />
+                    </div>
+                    <div>
+                        Mod <select onChange={this.handleSelectChange} value={this.state.mod_id}>
+                        {this.props.all_mod.map((mod)=> <option value={mod.id}>{mod.name}</option> )}
+                        </select>
+                    </div>
+                    <input type="submit" value="edit" />
+                </form>
+            </div>
             </React.Fragment>
         )
     }

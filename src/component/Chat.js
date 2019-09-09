@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import {connect} from 'react-redux'
 import {getAllFriends,getTwoUsersChat,getLoggedInUser,sendUserMessage} from '../redux/action'
 import ChatBoxForUser from "./ChatBoxForUser";
+import GlobalChat from "./GlobalChat" 
 
 class Chat extends React.Component {
 
@@ -13,7 +14,15 @@ class Chat extends React.Component {
 
     state={
         text:'',
-        clicked:false
+        clicked:false,
+        global:false
+    }
+
+    handleGlobalClick=()=>{
+        this.setState({
+            global:true,
+            clicked:false
+        })
     }
 
 
@@ -22,7 +31,8 @@ class Chat extends React.Component {
         localStorage.clicked_user=id
         this.props.getTwoUsersChat(id)
         this.setState({
-            clicked:true
+            clicked:true,
+            global:false 
         })
         // this.props.history.push("/profile")
     }
@@ -30,7 +40,7 @@ class Chat extends React.Component {
         return(
             <React.Fragment>
                 <Navbar />
-
+                <button onClick={this.handleGlobalClick}>Global Chat</button>
                 <div>
                     ALL FRIENDS
                 {this.props.all_friends.map((user)=>
@@ -45,6 +55,12 @@ class Chat extends React.Component {
             :
 
             null}
+
+            {this.state.global?
+            <GlobalChat />
+            :
+            null
+             }
             </React.Fragment>
         )
     }

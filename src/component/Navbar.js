@@ -16,21 +16,21 @@ class Navbar extends React.Component {
 
     render(){
         return(
-                <div className="Navbar-container">
-                    <Link to="/home" >home-</Link>
-                    <Link to="/calender" >Calender-</Link>
-                    <Link to="/friends" >friends-</Link>
-                    <Link to="/mymod" >My Mod-</Link>
-                    <a onClick={()=>localStorage.clicked_user=localStorage.current_user} href="/profile" >Profile-</a>
-                    <Link to="/setting" >setting-</Link>
+                <div className="navbar-container">
+                    <Link to="/home" >Home</Link>
+                    <Link to="/calender" >Calender</Link>
+                    <Link to="/friends" >Friends</Link>
+                    <Link to="/mymod" >My Mod</Link>
+                    <a onClick={()=>localStorage.clicked_user=localStorage.current_user} href="/profile" >Profile</a>
+                    <Link to="/setting" >Setting</Link>
                     {this.props.loggedIn_user.admin ?
-                    <Link to="/admin" >AdminSection-</Link>
+                    <Link to="/admin" >AdminSection</Link>
                     :
                     null
                 
                     }
-                    <Link to="/chat" >Chat-</Link>
-                    <Link to="/" onClick={this.handleLogout} >logout</Link>
+                    <Link to="/chat" >Chat</Link>
+                    <Link to="/" onClick={this.handleLogout} >Logout</Link>
                 </div>
         )
     }

@@ -12,6 +12,83 @@ code {
     monospace;
 }
 
+.body-container{
+  /* padding-top:50px; */
+}
+
+.edit-form{
+  border: 1px solid blue;
+  padding:50px;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+    
+}
+.edit-form-container{
+
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setting-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+}
+
+
 .profile-picture{
   height:100px
+}
+
+.navbar-container{
+  /* position: fixed; */
+  background:rgb(32,	47	,62	);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  width:100%;
+  flex-wrap: nowrap;
+  flex-shrink: 1;
+
+}
+
+/* navbar */
+.navbar-container a{
+  color: white;
+  text-decoration: none;
+  height:40px;
+  width: 120px;
+}
+
+.navbar-container a:hover{
+  background: black;
+}
+
+
+
+
+
+
+/* homepage */
+
+.homepage-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+
+
+.homepage-tweets{
+
+
 }

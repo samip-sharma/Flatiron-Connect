@@ -15,12 +15,12 @@ import {connect} from 'react-redux'
             return <li>{event.title}-{event.start}</li>
         })
         return(
-            <React.Fragment>
+            <div className="upcomming-events">
                 Upcomming Events
                 <ul>
-                {arr}
+                {arr.length===0? arr :"No upcomming events"}
                 </ul>
-            </React.Fragment>
+            </div>
         )
     }
 }

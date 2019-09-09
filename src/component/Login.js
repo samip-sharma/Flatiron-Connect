@@ -26,6 +26,8 @@ export default class Login extends React.Component{
                 <input type="submit" value="submit"/>
                 </form>
                 <button onClick={()=>{this.props.history.push('/register')}}>Register</button>
+           
+            
             </div>
         )
     }

@@ -1,5 +1,5 @@
 import {HEADERS,API} from '../constants/constants'
-import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER,GET_TWO_USERS_CHAT,SEND_USER_MESSAGE} from './type'
+import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER,GET_TWO_USERS_CHAT,SEND_USER_MESSAGE,GET_GLOBAL_MESSAGE,SEND_GLOBAL_MESSAGE} from './type'
 
 export const login=(login_state)=>{
     return function(dispatch){
@@ -436,5 +436,31 @@ export const sendUserMessage=(id,text)=>{
                 dispatch({"type":SEND_USER_MESSAGE,payload:data})
             }
         })
+    }
+}
+
+
+
+
+export const getGlobalMessage=()=>{
+    return function(dispatch){
+        fetch(API+"/global_messages")
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":GET_GLOBAL_MESSAGE,payload:data})
+            }
+        })
+    }
+}
+
+
+// result adding to state after we
+//  get data from web sockets
+
+export const sendGlobalMessage=(data)=>{
+    return function(dispatch){
+        dispatch({ "type" :SEND_GLOBAL_MESSAGE,payload:data.global_message })
+       
     }
 }

@@ -1,4 +1,4 @@
-import {LOGIN,REGISTER,ADD_NEW_TWEET,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER,GET_TWO_USERS_CHAT,SEND_USER_MESSAGE} from './type.js'
+import {LOGIN,REGISTER,ADD_NEW_TWEET,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER,GET_TWO_USERS_CHAT,SEND_USER_MESSAGE,GET_GLOBAL_MESSAGE,SEND_GLOBAL_MESSAGE} from './type.js'
 
 const initialState={
     current_user:{},
@@ -13,7 +13,8 @@ const initialState={
     my_mod:{},
     all_pending_user:[],
     all_users:[],
-    two_users_chat:[]
+    two_users_chat:[],
+    global_messages:[]
 
 }
 
@@ -146,6 +147,16 @@ export default function reducer(state=initialState,action){
                     two_users_messages:[...state.two_users_chat.two_users_messages,action.payload]
 
                 }
+            }
+        case GET_GLOBAL_MESSAGE:
+            return{
+                ...state,
+                global_messages:action.payload
+            }
+        case SEND_GLOBAL_MESSAGE:
+            return{
+                ...state,
+                global_messages:[...state.global_messages,action.payload]
             }
         default:
             return state
