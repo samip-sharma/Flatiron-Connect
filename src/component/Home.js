@@ -37,11 +37,17 @@ export default class Home extends React.Component{
 
     render(){
         if (!localStorage.token) this.props.history.push("/")
-        // console.log(this.props)
+        let homeTweets=this.props.all_tweets.map((tweet)=> {
+            return <div className="each-tweet"> 
+            <span onClick={()=>this.handleUserClick(tweet.user.id)}><span className="user-name">{tweet.user.name}</span></span>
+            -{tweet.content}
+            </div>}
+            )
         return(
             <React.Fragment>
                 <Navbar />
             <div className="homepage-container">
+
                 <div className="homepage-tweet-form">
                     <form onSubmit={this.handlePostSubmit}>
                         <input value={this.state.content} onChange={this.handleInputChange} type="text" name="content" placeholder={`What's in mind, ${this.props.loggedIn_user.name}?`} />
@@ -51,13 +57,7 @@ export default class Home extends React.Component{
                     
 
                     <div className="homepage-tweets">
-                        {
-                        this.props.all_tweets.map((tweet)=> {
-                        return <div className="each-Tweet"> 
-                        <span onClick={()=>this.handleUserClick(tweet.user.id)}><span className="user-name">{tweet.user.name}</span></span>
-                        -{tweet.content}
-                        </div>}
-                        )}
+                        {homeTweets.reverse()}
                     </div>
                 </div>
                 

@@ -22,7 +22,9 @@ export default class ChatBoxForUser extends React.Component{
            clearInterval(this.loop)
            this.loop = setInterval(() => {
             this.props.getChat(localStorage.clicked_user)
-            }, 300)
+            var objDiv = document.getElementById("test");
+            objDiv.scrollBottom = objDiv.scrollHeight;
+            }, 20000)
 
 
        }
@@ -38,19 +40,20 @@ export default class ChatBoxForUser extends React.Component{
             text:e.target.value
         })
     }
+
    
     render(){
         let messageArr
             if (this.props.chat.two_users_messages){
                 messageArr=this.props.chat.two_users_messages.map((message)=>{
-                    return <p>{message.text}</p>
+                    return <p>{message.sender}-{message.text}</p>
                 })
             }
         return(
             <React.Fragment>
                 {this.props.chat.two_users_messages?
                  <div>
-                    <div className="two-user-messages">
+                    <div id="test" className="two-user-messages">
                         {messageArr}
                     </div>
                    

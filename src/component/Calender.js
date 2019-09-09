@@ -50,31 +50,42 @@ class Calender extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
+      <React.Fragment>
         <Navbar/>
+      <div className="calender-component">
         <div className="Calender">
           <Calendar
             
             localizer={localizer}
             getNow={() => new Date()}
             events={this.props.all_mod_events}
-            style={{ height: "50vh" }}
+            style={{ height: "40vh" }}
           />
         </div>
         <br></br><br></br><br></br>
-        <div>
-          <form onSubmit={this.onSubmit}>
-           Start date  
-           <input onChange={this.handleFormChange} value={this.state.title} type="text" name="title" placeholder="Event Title"/>
-            <input type="date" onChange={this.handleFormChange} value={this.state.start_date} name="start_date" placeholder="Start date(M/dd/YYYY)"/>
-            <input type="time" onChange={this.handleFormChange} value={this.state.start_time} name="start_time" placeholder="Start time(HH:MM)"/>
-            End date
-            <input type="date" onChange={this.handleFormChange} value={this.state.end_date} name="end_date" placeholder="End date(M/dd/YYYY)"/>
-            <input type="time" onChange={this.handleFormChange} value={this.state.end_time} name="end_time" placeholder="End time(HH:MM)"/>
-            <input type="submit" value="create event" />
+        <div className="calender-form">
+          <form  onSubmit={this.onSubmit}>
+            <div className="calender-flex">
+                <div className="start-date">
+                  <h4>Start date </h4> 
+                    <input onChange={this.handleFormChange} value={this.state.title} type="text" name="title" placeholder="Event Title"/>
+                    <input type="date" onChange={this.handleFormChange} value={this.state.start_date} name="start_date" placeholder="Start date(M/dd/YYYY)"/>
+                    <input type="time" onChange={this.handleFormChange} value={this.state.start_time} name="start_time" placeholder="Start time(HH:MM)"/>
+                </div>
+
+                <div className="end-date">
+                  <h4>End date</h4>
+                  <input type="date" onChange={this.handleFormChange} value={this.state.end_date} name="end_date" placeholder="End date(M/dd/YYYY)"/>
+                  <input type="time" onChange={this.handleFormChange} value={this.state.end_time} name="end_time" placeholder="End time(HH:MM)"/>
+                </div>
+            </div>
+          <div className="event-submit-btn">
+            <input style={{width:"150px", textAlign: "center", alignSelf:"center"}} className="create-event" type="submit" value="create event" />
+            </div>
           </form>
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }

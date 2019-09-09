@@ -73,16 +73,17 @@ class Profile extends React.Component{
         }
 
         if(this.props.current_user.tweets && this.props.current_user.blogs){
-            userTweet= this.props.current_user.tweets.map(tweets => <div>{tweets.content}</div>)
-            userBlogs=this.props.current_user.blogs.map(blog=> {
-            return <a href= {blog.url} > {blog.title} </a>})
+            userTweet= this.props.current_user.tweets.map(tweets => <div className="each-tweet"> {tweets.content}</div>)
+            userBlogs=this.props.current_user.blogs.map((blog,i)=> {
+            return <a href= {blog.url} >{`${i+1})`} {blog.title} </a>})
         }
 
 
 
         return(
-            <React.Fragment>
+        <React.Fragment>
                 <Navbar/>
+        <div className="profile-container">
                 {this.state.ppChange?
                 <ProfilePic handleProfileChangeClose={this.handleProfileChangeClose} />
                     :
@@ -96,23 +97,26 @@ class Profile extends React.Component{
                     <div>user Name:{user_name}</div>
                     <div>working:
 
-                    <input type="checkbox" onChange={this.handleCheckboxChange} checked={this.state.checked}></input>
+                    <input style={{width:"10px"}} type="checkbox" onChange={this.handleCheckboxChange} checked={this.state.checked}></input>
 
                     </div>
                     <div>working_at:{working_at}</div>
 
                 </div>
 
-                <br />
+            <div className="blog-and-tweet">
                 <div className="profile-tweets">
                     TWEETS
                     {userTweet}
                 </div>
 
-                <br />
-                <div className="profile-blogs">
-                    BLOGS 
-                    {userBlogs}
+
+                <div className="profile-blogs-and-form">
+                    <div className="profile-blogs">
+                    BLOGS <br/>
+                        {userBlogs}
+                    </div>
+
                     <div className="profile-blog-form">
                         <form onSubmit={this.handleBlogFormSubmit}>
                             <input onChange={this.handleBlogFormInput} value={this.state.title} type="text" placeholder="title" name="title"  />
@@ -122,11 +126,11 @@ class Profile extends React.Component{
                         </form>
                     </div>
                 </div>
-                
+            </div>
 
 
-                
-            </React.Fragment>
+        </div> 
+        </React.Fragment>
         )
     }
 }

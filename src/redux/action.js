@@ -426,7 +426,8 @@ export const sendUserMessage=(id,text)=>{
             },
             body:JSON.stringify(
              { chat_id:id,
-                text:text
+                text:text,
+                user_id:localStorage.current_user
               }
             )
           })

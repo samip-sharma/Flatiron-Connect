@@ -90,7 +90,7 @@ code {
 
 .homepage-container{
   padding-top: 50px;
-  height: 100%;
+  height: 90vh;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -100,7 +100,62 @@ code {
 }
 
 .homepage-tweets{
-  border: 1px solid blue;
+  border: 1px solid black;
+  height: 85%;
+  padding:20px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+  overflow: scroll;
+}
+
+.profile-tweets{
+  border: 1px solid black;
+  height: 500px;
+  padding:20px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+  overflow: scroll;
+  width: 500px;
+}
+
+.profile-blogs{
+  border: 1px solid black;
+  height: 300px;
+  padding:20px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+  overflow: scroll;
+  width: 500px;
+}
+
+.profile-blogs-and-form{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.profile-container{
+  padding:10px;
+}
+
+.blog-and-tweet{
+  padding-top:40px; 
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around
+}
+
+
+.each-tweet{
+  width:80%;
+  margin: 10px auto;
+  border-radius: 20px;
+  padding:10px;
+
+}
+
+.each-tweet:nth-child(even){
+  background-color:  rgb(217,	218,	213	);
 }
 
 .each-profile-pic{
@@ -109,13 +164,13 @@ code {
 
 
 .homepage-tweets{
-
+  width:400px;
 
 }
 
 .modale{
   position: fixed;
-  width: 60%;
+  width: 50%;
   z-index: 999;
   background: grey;
   top: 20%;
@@ -179,4 +234,42 @@ width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.two-user-messages{
+  /* height: 400px; */
+  /* overflow: scroll; */
+
+}
+
+
+.Calender{
+  padding:15px;
+}
+
+.calender-flex{
+  width:80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.create-event{
+  width: 100px;
+  
+}
+
+.event-submit-btn{
+  display: flex;
+  justify-content: center;
+}
+.calender-component{
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+
+.profile-blog-form{
+  padding-top: 30px;
+  width:400px;
 }

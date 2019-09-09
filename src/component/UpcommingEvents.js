@@ -18,7 +18,7 @@ import {connect} from 'react-redux'
             <div className="upcomming-events">
                 Upcomming Events
                 <ul>
-                {arr.length===0? arr :"No upcomming events"}
+                {arr.length>=0? arr :"No upcomming events"}
                 </ul>
             </div>
         )

@@ -65,7 +65,7 @@ class MyMode extends React.Component{
                 <div className="tweets">
                     Mod Tweets
                     <ul>
-                    {this.props.all_mod_tweets.map(tweet=><li>{tweet.content}</li>)}
+                    {this.props.all_mod_tweets.map(tweet=><li>{tweet.user.name}-{tweet.content}</li>)}
                     </ul>
                 </div>
 
