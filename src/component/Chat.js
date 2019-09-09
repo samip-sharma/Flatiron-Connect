@@ -1,9 +1,10 @@
 import React from "react"
 import Navbar from './Navbar'
 import {connect} from 'react-redux'
-import {getAllFriends,getTwoUsersChat,getLoggedInUser,sendUserMessage} from '../redux/action'
+import {getAllFriends,getTwoUsersChat,sendGlobalMessage,getLoggedInUser,sendUserMessage} from '../redux/action'
 import ChatBoxForUser from "./ChatBoxForUser";
 import GlobalChat from "./GlobalChat" 
+
 
 class Chat extends React.Component {
 
@@ -36,9 +37,12 @@ class Chat extends React.Component {
         })
         // this.props.history.push("/profile")
     }
+
+    
     render(){
         return(
             <React.Fragment>
+               
                 <Navbar />
                 <button onClick={this.handleGlobalClick}>Global Chat</button>
                 <div>
@@ -81,7 +85,8 @@ const mapStateToProps=(state)=>{
     getAllFriends:getAllFriends,
     getTwoUsersChat:getTwoUsersChat,
     getLoggedInUser:getLoggedInUser,
-    sendUserMessage:sendUserMessage
+    sendUserMessage:sendUserMessage,
+    sendGlobalMessage:sendGlobalMessage
 
   }
 

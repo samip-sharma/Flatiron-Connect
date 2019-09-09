@@ -16,6 +16,15 @@ code {
   /* padding-top:50px; */
 }
 
+
+.user-name{
+  font-weight: bold;
+}
+
+.user-name:hover{
+  pointer:pointer;
+}
+
 .edit-form{
   border: 1px solid blue;
   padding:50px;
@@ -128,6 +137,7 @@ code {
 .login-container{
   /* background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
   background-position: center;  */
+  padding-top: 80px;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -146,6 +156,7 @@ code {
 .register-container{
   /* background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
   background-position: center;  */
+  padding-top: 80px;
   height: 100vh;
   width: 100vw;
   display: flex;

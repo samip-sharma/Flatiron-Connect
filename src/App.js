@@ -9,10 +9,11 @@ import Profile from './component/Profile'
 import Setting from './component/Setting'
 import Admin from './component/Admin'
 import Chat from './component/Chat'
+import { ActionCable } from 'react-actioncable-provider';
 
 import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
-import {login,register, allTweets,getAllFriends,getModEvents,addNewEvent,addNewTweet} from './redux/action'
+import {login,register,sendGlobalMessage, allTweets,getAllFriends,getModEvents,addNewEvent,addNewTweet} from './redux/action'
 import MyMode from './component/MyMode';
 
 class App extends React.Component {
@@ -37,8 +38,31 @@ class App extends React.Component {
      }
    })
   }
+
+  onConnected = () => {
+    console.log("I'm connected")
+  }
+
+  onDisconnected = () => {
+    console.log("I'm disconnected")
+  }
+
+  handleReceivedMessage=(data)=>{
+    // debugger
+    console.log(data)
+    this.props.sendGlobalMessage(data)
+}
   render() {
     return (
+      <React.Fragment>
+          <ActionCable
+            channel={{ channel: 'GlobalMessagesChannel' }}
+            onReceived={this.handleReceivedMessage}
+            onConnected={this.onConnected}
+            onDisconnected={this.onDisconnected}
+      />
+
+ 
       <Switch>
         <Route exact path='/' render={(routerProps)=> <Login  {...routerProps} handleLoginSubmit={this.handleLoginSubmit} />} />
         <Route exact path='/calender' render={(routerProps)=> <Calender addNewEvent={this.props.addNewEvent} getModEvents={this.props.getModEvents} all_mod_events={this.processEventDates()}  {...routerProps}  />} />
@@ -52,6 +76,7 @@ class App extends React.Component {
         <Route  path='/chat' render={(routerProps)=> <Chat  {...routerProps}  />} />
 
       </Switch>
+      </React.Fragment>
     )
   }
 }
@@ -75,7 +100,8 @@ const mapDispatchToProps= {
     getAllFriends:getAllFriends,
     getModEvents:getModEvents,
     addNewEvent:addNewEvent,
-    addNewTweet:addNewTweet
+    addNewTweet:addNewTweet,
+    sendGlobalMessage:sendGlobalMessage
   }
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)

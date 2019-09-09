@@ -1,4 +1,6 @@
 import React from 'react'
+import { MDBAnimation } from "mdbreact";
+
 
 
 
@@ -23,7 +25,11 @@ export default class Login extends React.Component{
     render(){
         return(
             <div className="register-container">
-                <h3 className="register-login-heading">Register</h3>
+                <h3 className="register-login-heading">
+                <MDBAnimation type="bounce" infinite> 
+                 Register
+                </MDBAnimation>
+                </h3>
                 <div className="register-form">
                     <form onSubmit={ this.handleLoginSubmit }>
                     <input onChange={ this.handleInputChange } value={ this.state.name } type="text" placeholder="Name" name="name"/>
@@ -37,17 +43,3 @@ export default class Login extends React.Component{
         )
     }
 }
-
-
-{/* <div className="login-container">
-                <div className="login-form">
-                <form onSubmit={ this.handleLoginSubmit }>
-                    <input onChange={ this.handleInputChange } value={ this.state.user_name } type="text" placeholder="User Name" name="user_name"/>
-                    <input onChange={ this.handleInputChange } value={ this.state.password }  type="password" placeholder="Password" name="password"/>
-                    <input type="submit" value="submit"/>
-                    <button className="login-register" onClick={()=>{this.props.history.push('/register')}}>Register</button>
-                    </form>
-            
-                
-                </div>
-            </div> */}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { MDBAnimation } from "mdbreact";
 
 export default class Login extends React.Component{
     state={
@@ -20,7 +21,11 @@ export default class Login extends React.Component{
         if (localStorage.token) {this.props.history.push('/home')}
         return(
             <div className="login-container">
-                <h3 className="register-login-heading">Login</h3>
+                <h3 className="register-login-heading">
+                <MDBAnimation type="bounce" infinite> 
+                 Login
+                </MDBAnimation>
+                    </h3>
                 <div className="login-form">
                 <form onSubmit={ this.handleLoginSubmit }>
                     <input onChange={ this.handleInputChange } value={ this.state.user_name } type="text" placeholder="User Name" name="user_name"/>

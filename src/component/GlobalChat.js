@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from "react-redux"
 import {HEADERS,API} from '../constants/constants'
 import {getGlobalMessage,sendGlobalMessage} from '../redux/action'
-import { ActionCable } from 'react-actioncable-provider';
 
 class GlobalChat extends React.Component{
 
@@ -14,11 +13,7 @@ class GlobalChat extends React.Component{
         this.props.getGlobalMessage()
     }
 
-    handleReceivedMessage=(data)=>{
-        // debugger
-        console.log(data)
-        this.props.sendGlobalMessage(data)
-    }
+    
 
     handleMessageSubmit=(e)=>{
         e.preventDefault()
@@ -53,10 +48,7 @@ class GlobalChat extends React.Component{
         }
         return(
         <React.Fragment>
-            <ActionCable
-            channel={{ channel: 'GlobalMessagesChannel' }}
-            onReceived={this.handleReceivedMessage}
-            />
+            
 
             <div className="global-messages">
             {messageArr}

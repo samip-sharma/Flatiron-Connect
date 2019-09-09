@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import ProfilePic from './ProfilPic'
 
 
+
 class Profile extends React.Component{
     state={
         checked:false,
@@ -121,6 +122,9 @@ class Profile extends React.Component{
                         </form>
                     </div>
                 </div>
+                
+
+
                 
             </React.Fragment>
         )

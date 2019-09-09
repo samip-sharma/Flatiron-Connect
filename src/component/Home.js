@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
-import UpcommingEvents from './UpcommingEvents'
+// import UpcommingEvents from './UpcommingEvents'
 import Sidebar from './Sidebar'
 
 
@@ -54,7 +54,7 @@ export default class Home extends React.Component{
                         {
                         this.props.all_tweets.map((tweet)=> {
                         return <div className="each-Tweet"> 
-                        <span onClick={()=>this.handleUserClick(tweet.user.id)}><img src={tweet.user.image? tweet.user.image.url : null} />{tweet.user.name}</span>
+                        <span onClick={()=>this.handleUserClick(tweet.user.id)}><span className="user-name">{tweet.user.name}</span></span>
                         -{tweet.content}
                         </div>}
                         )}
@@ -66,10 +66,12 @@ export default class Home extends React.Component{
                     <div>
 
                 </div>
+
                 <Sidebar />
                 </div>
                 
             </div>
+
             </React.Fragment>
         )
     }
