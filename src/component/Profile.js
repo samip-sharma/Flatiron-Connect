@@ -2,13 +2,15 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getCurrentUser,troggleWorking,addBlog} from '../redux/action'
 import Navbar from './Navbar';
+import ProfilePic from './ProfilPic'
 
 
 class Profile extends React.Component{
     state={
         checked:false,
         title:'',
-        url:''
+        url:'',
+        ppChange:false
     }
 
     handleCheckboxChange=()=>{
@@ -40,6 +42,23 @@ class Profile extends React.Component{
     }
     }
 
+    handleProfileChangeClick=()=>{
+        if(localStorage.clicked_user===localStorage.current_user){
+
+            this.setState({
+                ppChange:true
+            })
+        }
+    }
+
+    handleProfileChangeClose=()=>{
+        this.setState({
+            ppChange:false
+        })
+    }
+
+
+
     render(){
         console.log(this.props)
         let userTweet=[]
@@ -63,8 +82,14 @@ class Profile extends React.Component{
         return(
             <React.Fragment>
                 <Navbar/>
-                <img className="profile-picture" src="https://sycorianmatrimony.files.wordpress.com/2017/04/photo-1mj.jpg?w=700" alt="default pic"></img>
+                {this.state.ppChange?
+                <ProfilePic handleProfileChangeClose={this.handleProfileChangeClose} />
+                    :
+                    null
+            }
 
+                <img className="profile-picture" src={this.props.current_user.image? this.props.current_user.image.url :"https://pbs.twimg.com/profile_images/1149340751265980417/s0j8V4p3_400x400.png" } alt="default pic"></img>
+                <button onClick={this.handleProfileChangeClick}>change image</button>
                 <div className="profile-detail" >
                     <div>name:{name}</div>
                     <div>user Name:{user_name}</div>

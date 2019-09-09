@@ -1,5 +1,5 @@
 import {HEADERS,API} from '../constants/constants'
-import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER,GET_TWO_USERS_CHAT,SEND_USER_MESSAGE,GET_GLOBAL_MESSAGE,SEND_GLOBAL_MESSAGE} from './type'
+import {LOGIN,REGISTER,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_NEW_EVENT,ADD_NEW_TWEET,GET_MOD_FRIENDS,GET_ALL_MOD,GET_MY_MOD,GET_CURRENT_USER,EDIT_CURRENT_USER,CREATE_NEW_MOD,GET_PENDING_MOD_USER,ACCEPT_PENDING_USER,REJECT_PENDING_USER,ALL_USERS,ADD_FRIEND,REMOVE_FRIEND,TROGGLE_WORKING,ADD_BLOG,GET_LOGGED_IN_USER,GET_TWO_USERS_CHAT,SEND_USER_MESSAGE,GET_GLOBAL_MESSAGE,SEND_GLOBAL_MESSAGE,GET_ALL_MOD_TWEETS,CREATE_MOD_TWEET,GET_ALL_IMAGE,CHANGE_PROFILE_PIC} from './type'
 
 export const login=(login_state)=>{
     return function(dispatch){
@@ -462,5 +462,90 @@ export const sendGlobalMessage=(data)=>{
     return function(dispatch){
         dispatch({ "type" :SEND_GLOBAL_MESSAGE,payload:data.global_message })
        
+    }
+}
+
+
+
+
+
+export const getAllModTweets=(modId)=>{
+    return function(dispatch){
+        fetch(API+`/mod_tweets/${modId}`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":GET_ALL_MOD_TWEETS,payload:data})
+            }
+        })
+    }
+}
+
+
+
+
+
+
+export const createModTweets=(content)=>{
+    return function(dispatch){
+        fetch(API+`/mod_tweets`,{
+            method:"POST",
+            headers:{
+              ...HEADERS,
+              "Authorization":localStorage.token
+            },
+            body:JSON.stringify(
+             { mod_id:localStorage.mod_id,
+               user_id:localStorage.current_user,
+               content:content
+              }
+            )
+          })
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":CREATE_MOD_TWEET,payload:data})
+            }
+        })
+    }
+}
+
+
+export const getAllImage=()=>{
+    return function(dispatch){
+        fetch(API+`/getAllImage`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            if(!data.error){
+                dispatch({"type":GET_ALL_IMAGE,payload:data})
+            }
+        })
+    }
+}
+
+
+
+export const changeProfilePic=(image_id)=>{
+    return function(dispatch){
+        fetch(API+`/changeProfilePic`,{
+            method:"POST",
+            headers:{
+              ...HEADERS,
+              "Authorization":localStorage.token
+            },
+            body:JSON.stringify(
+             {
+               user_id:localStorage.current_user,
+               image_id:image_id
+              }
+            )
+          })
+        .then(resp=>resp.json())
+        .then(data=>{
+            // debugger
+            if(!data.error){
+                dispatch({"type":CHANGE_PROFILE_PIC,payload:data})
+            }
+        })
     }
 }

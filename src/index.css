@@ -80,15 +80,92 @@ code {
 /* homepage */
 
 .homepage-container{
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 
 
+}
+
+.homepage-tweets{
+  border: 1px solid blue;
+}
+
+.each-profile-pic{
+  height:50px;
 }
 
 
 .homepage-tweets{
 
 
+}
+
+.modale{
+  position: fixed;
+  width: 60%;
+  z-index: 999;
+  background: grey;
+  top: 20%;
+  left: 20%;
+}
+
+.modale header {
+  padding: 10px;
+  text-align: right;
+}
+
+
+.login-form,.register-form{
+
+  /* align-self: center; */
+  width:500px;
+}
+
+.login-container{
+  /* background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
+  background-position: center;  */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-login-heading{
+  font-family: 'Caveat', cursive;
+  font-size: 60px;
+
+}
+
+
+.register-container{
+  /* background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
+  background-position: center;  */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-register{
+
+}
+
+
+.sidebar-image{
+height: 100px;
+width: 100px;
+}
+
+.side-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

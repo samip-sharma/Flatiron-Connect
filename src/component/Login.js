@@ -19,15 +19,18 @@ export default class Login extends React.Component{
     render(){
         if (localStorage.token) {this.props.history.push('/home')}
         return(
-            <div>
-            <form onSubmit={ this.handleLoginSubmit }>
-                <input onChange={ this.handleInputChange } value={ this.state.user_name } type="text" placeholder="User Name" name="user_name"/>
-                <input onChange={ this.handleInputChange } value={ this.state.password }  type="password" placeholder="Password" name="password"/>
-                <input type="submit" value="submit"/>
-                </form>
-                <button onClick={()=>{this.props.history.push('/register')}}>Register</button>
-           
+            <div className="login-container">
+                <h3 className="register-login-heading">Login</h3>
+                <div className="login-form">
+                <form onSubmit={ this.handleLoginSubmit }>
+                    <input onChange={ this.handleInputChange } value={ this.state.user_name } type="text" placeholder="User Name" name="user_name"/>
+                    <input onChange={ this.handleInputChange } value={ this.state.password }  type="password" placeholder="Password" name="password"/>
+                    <input type="submit" value="submit"/>
+                    <button className="login-register" onClick={()=>{this.props.history.push('/register')}}>Register</button>
+                    </form>
             
+                
+                </div>
             </div>
         )
     }
