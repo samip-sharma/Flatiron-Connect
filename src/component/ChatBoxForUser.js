@@ -7,11 +7,10 @@ export default class ChatBoxForUser extends React.Component{
    }
 
     loop = setInterval(() => {
+        console.log("poling activate")
                 this.props.getChat(localStorage.clicked_user)
-        }, 300)
+        },2000)
 
-
-  
 
    componentWillUnmount(){
     clearInterval(this.loop)
@@ -26,13 +25,18 @@ export default class ChatBoxForUser extends React.Component{
             objDiv.scrollBottom = objDiv.scrollHeight;
             }, 20000)
 
+            var objDiv = document.querySelector(".two-user-messages")
+      objDiv.scrollTop = objDiv.scrollHeight;
 
        }
    }
-   
+
     handleChatSubmit=(e)=>{
         e.preventDefault()
         this.props.sendUserMessage(this.props.chat.id,this.state.text)
+        this.setState({
+          text:""
+        })
     }
 
     handleChatInputChange=(e)=>{
@@ -41,8 +45,10 @@ export default class ChatBoxForUser extends React.Component{
         })
     }
 
-   
+
     render(){
+        var objDiv = document.querySelector(".two-user-messages")
+      if (objDiv) {objDiv.scrollTop = objDiv.scrollHeight};
         let messageArr
             if (this.props.chat.two_users_messages){
                 messageArr=this.props.chat.two_users_messages.map((message)=>{
@@ -50,25 +56,25 @@ export default class ChatBoxForUser extends React.Component{
                 })
             }
         return(
-            <React.Fragment>
+            <div className='chat-single'>
                 {this.props.chat.two_users_messages?
                  <div>
                     <div id="test" className="two-user-messages">
                         {messageArr}
                     </div>
-                   
+
                     <div className="two-user-messages-form">
                     <form onSubmit={this.handleChatSubmit}>
                         <input onChange={this.handleChatInputChange} value={this.state.text} type="text" placeholder="type your message" />
                         <input type="submit" value="submit" />
                     </form>
                     </div>
-    
+
                 </div>
                 :
                 null
                 }
-            </React.Fragment>
+            </div>
         )
     }
 }

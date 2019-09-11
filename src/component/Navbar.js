@@ -27,9 +27,8 @@ class Navbar extends React.Component {
                     <Link to="/admin" >AdminSection</Link>
                     :
                     null
-                
+
                     }
-                    <Link to="/chat" >Chat</Link>
                     <Link to="/" onClick={this.handleLogout} >Logout</Link>
                 </div>
         )

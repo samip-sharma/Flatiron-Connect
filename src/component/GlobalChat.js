@@ -11,9 +11,12 @@ class GlobalChat extends React.Component{
 
     componentDidMount(){
         this.props.getGlobalMessage()
+
+        var objDiv = document.querySelector(".global-messages")
+        if (objDiv) {objDiv.scrollTop = objDiv.scrollHeight};
     }
 
-    
+
 
     handleMessageSubmit=(e)=>{
         e.preventDefault()
@@ -39,16 +42,18 @@ class GlobalChat extends React.Component{
     }
 
     render(){
+        var objDiv = document.querySelector(".global-messages")
+        if (objDiv) {objDiv.scrollTop = objDiv.scrollHeight};
         // console.log(this.props)
         let messageArr
         if (this.props.global_messages.length>0){
             messageArr=this.props.global_messages.map((message)=>{
-                return<p>{message.user.name}-{message.text}</p>
+                return<p key={message.id}>{message.user.name}-{message.text}</p>
             })
         }
         return(
         <React.Fragment>
-            
+          <div className="chat-global">
 
             <div className="global-messages">
             {messageArr}
@@ -60,22 +65,23 @@ class GlobalChat extends React.Component{
                     <input type="submit" value="send" />
                 </form>
             </div>
+          </div>
         </React.Fragment>
         )
     }
 }
 
 const mapStateToProps=(state)=>{
+    
     return {
         loggedIn_user : state.loggedIn_user,
         global_messages:state.global_messages
     }
   }
-  
+
   const mapDispatchToProps = {
     getGlobalMessage:getGlobalMessage,
     sendGlobalMessage:sendGlobalMessage
   }
-  
+
 export default connect(mapStateToProps,mapDispatchToProps)(GlobalChat)
-  

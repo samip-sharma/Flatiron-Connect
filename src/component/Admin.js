@@ -1,6 +1,7 @@
 import React from "react"
 import Navbar from './Navbar'
 import {connect} from 'react-redux'
+import Sidebar from './Sidebar'
 import {createNewMod,getAllMod,getPendingModUser,acceptModUser,rejectModUser} from '../redux/action'
 
 class Admin extends React.Component {
@@ -23,7 +24,7 @@ class Admin extends React.Component {
   handleSubmit=(e)=>{
     e.preventDefault()
     this.props.createNewMod(this.state)
-    
+
   }
 
   handleUserAccept=(id)=>{
@@ -67,6 +68,7 @@ render(){
             })}
             </ul>
           </div>
+          <Sidebar />
         </React.Fragment>
     )
 }
@@ -92,4 +94,3 @@ const mapStateToProps=(state)=>{
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(Admin)
-

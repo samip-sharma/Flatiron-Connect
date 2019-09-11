@@ -1,16 +1,26 @@
 import React from "react"
-import Navbar from './Navbar'
 import {connect} from 'react-redux'
 import {getAllFriends,getTwoUsersChat,sendGlobalMessage,getLoggedInUser,sendUserMessage} from '../redux/action'
 import ChatBoxForUser from "./ChatBoxForUser";
-import GlobalChat from "./GlobalChat" 
+import GlobalChat from "./GlobalChat"
 
 
 class Chat extends React.Component {
 
+// loop = setInterval(() => {
+
+//     console.log("looping")
+//     this.props.getAllFriends()
+// },2000)
+
+
+// componentWillUnmount(){
+//     clearInterval(this.loop)
+// }
+
     componentDidMount(){
-        this.props.getAllFriends()
         this.props.getLoggedInUser()
+        this.props.getAllFriends()     
     }
 
     state={
@@ -33,39 +43,49 @@ class Chat extends React.Component {
         this.props.getTwoUsersChat(id)
         this.setState({
             clicked:true,
-            global:false 
+            global:false
         })
         // this.props.history.push("/profile")
     }
 
-    
+
     render(){
         return(
-            <React.Fragment>
-               
-                <Navbar />
+          <>
+            <div className='chat-container'>
+
                 <button onClick={this.handleGlobalClick}>Global Chat</button>
                 <div>
                     ALL FRIENDS
                 {this.props.all_friends.map((user)=>
-                <p> 
-                    <div onClick={()=>this.handleUserClick(user.id)}>{user.name}</div> 
-                </p>)}
+                <div key={user.id}>
+                    <div onClick={()=>this.handleUserClick(user.id)}>
+                    {user.active_user?
+                    <img style={{height:"10px"}} src="http://www.clker.com/cliparts/n/6/E/l/R/n/green-button-blank-md.png" alt="online"/>
+                    :
+                    <img style={{height:"10px"}} src="https://t4.rbxcdn.com/febc68c16e64ba11fa26981649a3ecf5" alt="offline" />
+
+                }
+                    {user.name}</div>
+                </div>)}
+                </div>
                 </div>
 
-            {this.state.clicked? 
-                
-            <ChatBoxForUser getChat={this.props.getTwoUsersChat} sendUserMessage={this.props.sendUserMessage} chat={this.props.two_users_chat}/>
-            :
+            <div className="chat-and-form">
+                {this.state.clicked?
 
-            null}
+                <ChatBoxForUser getAllFriends={this.props.getAllFriends} getChat={this.props.getTwoUsersChat} sendUserMessage={this.props.sendUserMessage} chat={this.props.two_users_chat}/>
+                :
 
-            {this.state.global?
-            <GlobalChat />
-            :
-            null
-             }
-            </React.Fragment>
+                null}
+
+                {this.state.global?
+                <GlobalChat />
+                :
+                null
+                 }
+             </div>
+          </>
         )
     }
 
@@ -92,6 +112,3 @@ const mapStateToProps=(state)=>{
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(Chat)
-
-
-

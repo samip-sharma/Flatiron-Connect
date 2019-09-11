@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getModFriends,getAllModTweets,createModTweets} from '../redux/action'
 import Navbar from './Navbar'
 import UpcommingEvent from './UpcommingEvents'
+import Sidebar from './Sidebar'
 
 
 class MyMode extends React.Component{
@@ -30,7 +31,7 @@ class MyMode extends React.Component{
     handlePostSubmit=(e)=>{
         e.preventDefault()
         this.props.createModTweets(this.state.content)
-        
+
     }
     render(){
         let arr=this.props.all_mod_friends.filter((user)=>{
@@ -77,13 +78,13 @@ class MyMode extends React.Component{
                 </div>
 
             </div>
-            
-                
+
+
 
                <div className="upcomming-event">
                 <UpcommingEvent />
                </div>
-
+               <Sidebar />
             </React.Fragment>
         )
     }
@@ -97,12 +98,11 @@ const mapStateToProps=(state)=>{
         all_mod_tweets:state.all_mod_tweets
     }
   }
-  
+
   const mapDispatchToProps = {
     getModFriends:getModFriends,
     getAllModTweets:getAllModTweets,
     createModTweets:createModTweets
   }
-  
+
 export default connect(mapStateToProps,mapDispatchToProps)(MyMode)
-  

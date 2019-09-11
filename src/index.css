@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
 }
 
 code {
@@ -53,7 +60,7 @@ code {
 
 
 .profile-picture{
-  height:100px
+  height:100px;
 }
 
 .navbar-container{
@@ -101,7 +108,7 @@ code {
 
 .homepage-tweets{
   border: 1px solid black;
-  height: 85%;
+  height: 80%;
   padding:20px;
   border-radius: 20px;
   box-shadow: 5px 10px #888888;
@@ -224,6 +231,11 @@ align-items: center;
 
 }
 
+/**********************  
+   Sidebar Component
+***********************/
+
+
 
 .sidebar-image{
 height: 100px;
@@ -231,14 +243,22 @@ width: 100px;
 }
 
 .side-bar{
+  position: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  width: 300px;
+  padding: 15px;
+  height: 85vh;
+  border: 1px solid black;
+  right:20px;
+  top: 50px;
 }
 
-.two-user-messages{
-  /* height: 400px; */
-  /* overflow: scroll; */
+.two-user-messages, .global-messages{
+  padding: 25px;
+  height: 100px;
+  overflow: scroll;
 
 }
 
@@ -273,3 +293,75 @@ width: 100px;
   padding-top: 30px;
   width:400px;
 }
+
+.chat-container {
+  border: 1px solid grey;
+  width: 95%;
+  height: 200px;
+  overflow: scroll;
+  margin: 0 auto;
+  margin: 15px 0 30px;
+}
+
+
+/**********************  
+  Single Chat Component
+***********************/
+
+.chat-single , .chat-global {
+  background: white;
+  height: 300px;
+  border: 1px solid grey;
+  overflow: scroll;
+}
+
+.chat-single form , .chat-global form {
+  width: 80%;
+  /* margin: 40px auto 0; */
+}
+
+.chat-single input, .chat-global form {
+  text-align: center;
+  /* margin: 20px auto 0; */
+}
+
+.chat-global{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+
+.two-user-messages , .global-messages{
+height:200px;
+}
+
+.friend-list-component{
+  display: flex;
+  width: 700px;
+  flex-direction: row;
+  justify-content: space-around;
+  padding:10px;
+}
+
+
+
+
+  .all-friends-friendlist,.all-users{
+    width:200px;
+    border: 1px solid black;
+    height: 400px;
+    padding:20px;
+    border-radius: 20px;
+    box-shadow: 5px 10px #888888;
+    overflow: scroll;
+  
+  }
+
+
+  .each-user-friends{
+    /* background-color: red; */
+    padding: 10px;
+    border:1px solid grey;
+    margin-top:5px;
+    border-radius: 15%;
+  }
