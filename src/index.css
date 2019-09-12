@@ -29,17 +29,22 @@ code {
 }
 
 .user-name:hover{
-  pointer:pointer;
+  cursor: pointer;
 }
 
 .edit-form{
-  border: 1px solid blue;
-  padding:50px;
-  height: 300px;
+  /* border: 1px solid blue; */
+  /* padding:50px; */
+  margin-top: 100px;
+  height: 500px;
   width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding:20px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
     
 }
 .edit-form-container{
@@ -82,6 +87,7 @@ code {
   text-decoration: none;
   height:40px;
   width: 120px;
+  text-align: center;
 }
 
 .navbar-container a:hover{
@@ -98,7 +104,7 @@ code {
 .homepage-container{
   padding-top: 50px;
   height: 90vh;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -166,9 +172,16 @@ align-items: center;
 }
 
 .each-profile-pic{
-  height:50px;
+  height:70px;
+  padding:10px;
 }
 
+.each-profile-pic:hover{
+  opacity: 1;
+  -webkit-animation: flash 1.5s;
+  animation: flash 1.5s;
+  cursor: pointer;
+}
 
 .homepage-tweets{
   width:400px;
@@ -241,6 +254,14 @@ align-items: center;
 height: 100px;
 width: 100px;
 }
+/* width:200px;
+    border: 1px solid black;
+    height: 400px;
+    padding:20px;
+    border-radius: 20px;
+    box-shadow: 5px 10px #888888;
+    overflow: scroll; */
+
 
 .side-bar{
   position: fixed;
@@ -249,10 +270,12 @@ width: 100px;
   /* justify-content: space-between; */
   width: 300px;
   padding: 15px;
-  height: 85vh;
+  height: 93vh;
   border: 1px solid black;
   right:20px;
   top: 50px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
 }
 
 .two-user-messages, .global-messages{
@@ -268,7 +291,7 @@ width: 100px;
 }
 
 .calender-flex{
-  width:80%;
+  width:100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -297,7 +320,7 @@ width: 100px;
 .chat-container {
   border: 1px solid grey;
   width: 95%;
-  height: 200px;
+  height: 180px;
   overflow: scroll;
   margin: 0 auto;
   margin: 15px 0 30px;
@@ -313,6 +336,7 @@ width: 100px;
   height: 300px;
   border: 1px solid grey;
   overflow: scroll;
+  align-content: center;
 }
 
 .chat-single form , .chat-global form {
@@ -337,10 +361,10 @@ height:200px;
 
 .friend-list-component{
   display: flex;
-  width: 700px;
+  width: 1000px;
   flex-direction: row;
   justify-content: space-around;
-  padding:10px;
+  padding:15px;
 }
 
 
@@ -364,4 +388,108 @@ height:200px;
     border:1px solid grey;
     margin-top:5px;
     border-radius: 15%;
+  }
+
+
+  .calender-form{
+    padding-top: 100px;
+  }
+
+  .upcomming-events{
+    height:200px;
+    width:400px;
+  padding:15px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+  overflow: scroll;
+  }
+
+  h4{
+    font-family: 'EB Garamond', serif;
+  }
+
+  .add-remove-friend{
+    padding:3px;
+    border-radius: 10px;
+  }
+
+  .not-accepted{
+    border: 1px solid grey;
+    width:400px;
+  
+    text-align: center;
+    margin:50px 0 0  50px;
+  }
+
+  .my-mod_component{
+    padding-top: 30px;
+    width:1000px;
+    display: flex;
+    flex-direction: row;
+  justify-content: space-around;
+  }
+
+  .admin-component{
+    width:1000px;
+    display: flex;
+    flex-direction: row;
+  justify-content: space-around;
+  }
+
+  .mod-name{
+    padding-top: 20px;
+    text-align: center
+  }
+
+
+  .mod_users, .mod-tweets{
+  padding:15px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+  /* overflow: scroll; */
+  /* margin-top: 100px; */
+  height:600px;
+  width:250px;
+  }
+
+  .tweets{
+      overflow: scroll;
+    height:450px;
+  }
+
+
+  .img-fluid{
+    height:20px;
+  }
+
+
+  .modale-button-component{
+    padding:0;
+    margin:0;
+  }
+
+  .button-and-name{
+    align-content: center;
+    text-align: center
+  }
+
+  .two-user-messages-form{
+    align-content: center;
+  }
+
+  .global-chat-form{
+    align-content: center;
+  }
+
+  .my-mod-form,.admin-all-mod,.admin-pending-req{
+    padding:15px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    box-shadow: 5px 10px #888888;
+    /* overflow: scroll; */
+    /* margin-top: 100px; */
+    height:600px;
+    width:250px;
   }

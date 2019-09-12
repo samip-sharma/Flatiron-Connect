@@ -2,7 +2,7 @@ import {LOGIN,REGISTER,ADD_NEW_TWEET,ALL_TWEETS,FRIEND_LIST,GET_MOD_EVENTS,ADD_N
 
 const initialState={
     current_user:{},
-    loggedIn_user:{},
+    loggedIn_user:{user_mod:{accepted:false}},
     all_tweets:[],
     events:[],
     mod_tweets:[],

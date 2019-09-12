@@ -16,7 +16,8 @@ import {connect} from 'react-redux'
         })
         return(
             <div className="upcomming-events">
-                Upcomming Events
+                <h4>Upcomming Events</h4>
+                <br />
                 <ul>
                 {arr.length>=0? arr :"No upcomming events"}
                 </ul>

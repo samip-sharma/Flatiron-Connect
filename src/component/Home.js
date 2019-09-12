@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 // import { ActionCable } from 'react-actioncable-provider';
 
-// import UpcommingEvents from './UpcommingEvents'
+import UpcommingEvents from './UpcommingEvents'
 import Sidebar from './Sidebar'
 
 
@@ -68,7 +68,7 @@ export default class Home extends React.Component{
 
                 <div>
                     <div>
-
+                <UpcommingEvents />
                 </div>
 
                 <Sidebar />

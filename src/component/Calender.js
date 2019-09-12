@@ -4,6 +4,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Navbar from './Navbar'
+import UpcommingEvents from "./UpcommingEvents";
 // import addNewEvent from '../redux/action'
 
 // import events from "./eventexample";
@@ -62,7 +63,7 @@ class Calender extends Component {
             style={{ height: "40vh" }}
           />
         </div>
-        <br></br><br></br><br></br>
+        
         <div className="calender-form">
           <form  onSubmit={this.onSubmit}>
             <div className="calender-flex">
@@ -78,6 +79,8 @@ class Calender extends Component {
                   <input type="date" onChange={this.handleFormChange} value={this.state.end_date} name="end_date" placeholder="End date(M/dd/YYYY)"/>
                   <input type="time" onChange={this.handleFormChange} value={this.state.end_time} name="end_time" placeholder="End time(HH:MM)"/>
                 </div>
+
+                <UpcommingEvents />
             </div>
           <div className="event-submit-btn">
             <input style={{width:"150px", textAlign: "center", alignSelf:"center"}} className="create-event" type="submit" value="create event" />

@@ -54,9 +54,8 @@ class App extends React.Component {
   handleReceivedMessage=(data)=>{
     console.log("got msg from action cable")
     // if (data.id===this.props.global_messages[this.props.global_messages.length-1].id){
-      this.props.sendGlobalMessage(data)
+      // this.props.sendGlobalMessage(data)
     // }
-
 }
 
   render() {

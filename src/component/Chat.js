@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getAllFriends,getTwoUsersChat,sendGlobalMessage,getLoggedInUser,sendUserMessage} from '../redux/action'
 import ChatBoxForUser from "./ChatBoxForUser";
 import GlobalChat from "./GlobalChat"
+import { MDBBtn } from "mdbreact";
 
 
 class Chat extends React.Component {
@@ -54,22 +55,25 @@ class Chat extends React.Component {
           <>
             <div className='chat-container'>
 
-                <button onClick={this.handleGlobalClick}>Global Chat</button>
+                <div className="button-and-name">
+                <MDBBtn onClick={this.handleGlobalClick} color="blue-grey">Global Chat</MDBBtn>
                 <div>
-                    ALL FRIENDS
-                {this.props.all_friends.map((user)=>
-                <div key={user.id}>
-                    <div onClick={()=>this.handleUserClick(user.id)}>
-                    {user.active_user?
-                    <img style={{height:"10px"}} src="http://www.clker.com/cliparts/n/6/E/l/R/n/green-button-blank-md.png" alt="online"/>
-                    :
-                    <img style={{height:"10px"}} src="https://t4.rbxcdn.com/febc68c16e64ba11fa26981649a3ecf5" alt="offline" />
+                    <h4> ALL FRIENDS</h4>
+                    {this.props.all_friends.map((user)=>
+                    <div className="user-name" key={user.id}>
+                        <div onClick={()=>this.handleUserClick(user.id)}>
+                        {user.active_user?
+                        <img style={{height:"10px"}} src="http://www.clker.com/cliparts/n/6/E/l/R/n/green-button-blank-md.png" alt="online"/>
+                        :
+                        <img style={{height:"10px"}} src="https://t4.rbxcdn.com/febc68c16e64ba11fa26981649a3ecf5" alt="offline" />
 
-                }
-                    {user.name}</div>
-                </div>)}
+                    }
+                        {user.name}</div>
+                    </div>)}
                 </div>
+
                 </div>
+            </div>
 
             <div className="chat-and-form">
                 {this.state.clicked?

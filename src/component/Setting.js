@@ -9,6 +9,7 @@ import NavBar from './Navbar'
         user_id:localStorage.current_user,
         name:'',
         user_name:'',
+        working_at:'',
         password:'',
         mod_id:localStorage.mod_id
     }
@@ -25,6 +26,10 @@ import NavBar from './Navbar'
         })
     }
 
+     refreshPage() {
+        // window.location.reload(false);
+      }
+
     componentDidMount(){
         this.props.getAllMod()
         this.props.getLoggedInUser()
@@ -33,6 +38,14 @@ import NavBar from './Navbar'
     handleSubmit= (e)=>{
         e.preventDefault()
         this.props.editCurrentUser(this.state)
+        // this.setState({
+        // name:'',
+        // user_name:'',
+        // working_at:'',
+        // password:''
+        // })
+        alert("saves changed")
+        // this.props.getLoggedInUser()
     }
 
 
@@ -48,6 +61,9 @@ import NavBar from './Navbar'
                     </div>
                     <div>
                         User Name:<input onChange={this.handleFormChange} type="text" value={this.state.user_name} name="user_name" placeholder={this.props.loggedIn_user.user_name} />
+                    </div>
+                    <div>
+                        Working At<input onChange={this.handleFormChange} type="text" value={this.state.working_at} name="working_at" placeholder={this.props.loggedIn_user.working_at} />
                     </div>
                     <div>
                         Password:<input onChange={this.handleFormChange} type="password" value={this.state.password} name="password" />

@@ -36,7 +36,7 @@ class FriendList extends React.Component{
                     <Navbar />
                 <div className="friend-list-component" >
                     <div className="all-friends-friendlist">
-                        ALL FRIENDS
+                        <h4>ALL FRIENDS</h4>
                     {this.props.all_friends.map((user)=>
                         <div className="each-user-friends">
                             <div onClick={()=>this.handleUserClick(user.id)}>
@@ -48,14 +48,14 @@ class FriendList extends React.Component{
                                 }
                                 {user.name}
                             </div>
-                            <button onClick={()=>this.handleRemoveFriend(user.id)}>Remove Friend</button>
+                            <button className="add-remove-friend" onClick={()=>this.handleRemoveFriend(user.id)}> Remove Friend</button>
                         </div>)}
                     </div>
 
                     
                     
                     <div className="all-users">
-                        ALL USERS
+                        <h4>ALL USERS</h4>
                     {notfriend.map((user)=>
                     <div className="each-user-friends">
                         <div onClick={()=>this.handleUserClick(user.id)}>
@@ -67,7 +67,7 @@ class FriendList extends React.Component{
                     }
                         {user.name}
                         </div>
-                        <button onClick={()=>this.handleAddFriend(user.id)}>ADD FRIEND</button>
+                        <button className="add-remove-friend" onClick={()=>this.handleAddFriend(user.id)}>ADD FRIEND</button>
                         </div>)}
                     </div>
                 </div>

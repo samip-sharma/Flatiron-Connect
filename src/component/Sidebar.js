@@ -13,9 +13,9 @@ class Sidebar extends React.Component{
                     <div> 
                     <img className="sidebar-image" src={this.props.loggedIn_user.image.url} alt="profile pic" />
                     </div>
-                    Name:{this.props.loggedIn_user.name}
+                    <h4>Name:</h4>{this.props.loggedIn_user.name}
                     <br />
-                    User Name:{this.props.loggedIn_user.user_name}
+                    <h4>User Name:</h4>{this.props.loggedIn_user.user_name}
                 </div>
             :
             null

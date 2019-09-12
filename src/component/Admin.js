@@ -2,6 +2,7 @@ import React from "react"
 import Navbar from './Navbar'
 import {connect} from 'react-redux'
 import Sidebar from './Sidebar'
+import { MDBBtn } from "mdbreact";
 import {createNewMod,getAllMod,getPendingModUser,acceptModUser,rejectModUser} from '../redux/action'
 
 class Admin extends React.Component {
@@ -40,33 +41,40 @@ render(){
     return(
         <React.Fragment>
           <Navbar></Navbar>
-          Create Mod
-          <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleInput} value={this.state.mod_name} type="text" name="mod_name" placeholder="New Mod Name" />
-            <input type="submit" value="create new mod" />
-          </form>
+          <div className="my-mod_component" >
+            <div className="my-mod-form">
+              <form onSubmit={this.handleSubmit}>
+              <h4>Create Mod</h4>
+              <input onChange={this.handleInput} value={this.state.mod_name} type="text" name="mod_name" placeholder="New Mod Name" />
+              <input type="submit" value="create new mod" />
+              </form>
+            </div>
 
 
           <div className="admin-all-mod">
-            ALL MOD
+            <h4>ALL MOD</h4>
             <ul>
             {this.props.all_mod.map((mod)=>{
-              return <li>{mod.name}</li>
+              return <div>{mod.name}</div>
             })}
             </ul>
           </div>
 
 
           <div className="admin-pending-req">
-            PENDING USER FOR MOD
+           <h4> PENDING USER FOR MOD</h4>
             <ul>
             {this.props.all_pending_user.map((user_mod)=>{
-              return <li>{user_mod.user.name}-----{user_mod.mod.name}
-              <button onClick={()=>this.handleUserAccept(user_mod.id)}>ACCEPT</button>
-              <button onClick={()=>this.handleUserReject(user_mod.id)} >REJECT</button>
-              </li>
+              return <div> <div className="user-name">{user_mod.user.name}</div>-----{user_mod.mod.name}
+              <br />
+              <MDBBtn style={{height:"30px",padding:"0", width:"56px"}} onClick={()=>this.handleUserAccept(user_mod.id)} rounded color="secondary">ACCEPT</MDBBtn>
+              <MDBBtn style={{height:"30px",padding:"0", width:"56px"}} onClick={()=>this.handleUserReject(user_mod.id)} rounded color="danger">REJECT</MDBBtn>
+              </div>
             })}
             </ul>
+          </div>  
+                
+
           </div>
           <Sidebar />
         </React.Fragment>

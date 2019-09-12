@@ -19,6 +19,8 @@ export default class Login extends React.Component{
     handleLoginSubmit=(e)=>{
         e.preventDefault()
         this.props.handleRegisterSubmit(this.state)
+        this.props.history.push("/home")
+        
         
     }
 

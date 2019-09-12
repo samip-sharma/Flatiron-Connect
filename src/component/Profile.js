@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getCurrentUser,troggleWorking,addBlog} from '../redux/action'
 import Navbar from './Navbar';
 import ProfilePic from './ProfilPic'
+import { MDBBtn } from "mdbreact";
 
 
 
@@ -91,7 +92,11 @@ class Profile extends React.Component{
             }
 
                 <img className="profile-picture" src={this.props.current_user.image? this.props.current_user.image.url :"https://pbs.twimg.com/profile_images/1149340751265980417/s0j8V4p3_400x400.png" } alt="default pic"></img>
-                <button onClick={this.handleProfileChangeClick}>change image</button>
+                {localStorage.clicked_user===localStorage.current_user?
+                    <ProfilePic onClick={this.handleProfileChangeClick} handleProfileChangeClose={this.handleProfileChangeClose} />                
+                :
+                null 
+                }
                 <div className="profile-detail" >
                     <div>name:{name}</div>
                     <div>user Name:{user_name}</div>
@@ -118,12 +123,17 @@ class Profile extends React.Component{
                     </div>
 
                     <div className="profile-blog-form">
+                        {localStorage.clicked_user===localStorage.current_user?
                         <form onSubmit={this.handleBlogFormSubmit}>
                             <input onChange={this.handleBlogFormInput} value={this.state.title} type="text" placeholder="title" name="title"  />
                             <input onChange={this.handleBlogFormInput} value={this.state.url} type="text" placeholder="url" name="url"  />
                             <input type="submit" value="post new blog" />
 
                         </form>
+                        :
+                        null
+                    
+                    }
                     </div>
                 </div>
             </div>
