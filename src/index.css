@@ -28,6 +28,11 @@ code {
   font-weight: bold;
 }
 
+.user-name img{
+  margin-right: 5px;
+
+}
+
 .user-name:hover{
   cursor: pointer;
 }
@@ -88,6 +93,7 @@ code {
   height:40px;
   width: 120px;
   text-align: center;
+  padding-top: 10px;
 }
 
 .navbar-container a:hover{
@@ -210,8 +216,8 @@ align-items: center;
 }
 
 .login-container{
-  /* background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
-  background-position: center;  */
+  background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
+  background-position: center; 
   padding-top: 80px;
   height: 100vh;
   width: 100vw;
@@ -229,8 +235,8 @@ align-items: center;
 
 
 .register-container{
-  /* background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
-  background-position: center;  */
+  background-image: url("https://i.ibb.co/mc81rkf/64302397-2035830616523205-6764429927623163904-o.jpg");
+  background-position: center; 
   padding-top: 80px;
   height: 100vh;
   width: 100vw;
@@ -365,13 +371,14 @@ height:200px;
   flex-direction: row;
   justify-content: space-around;
   padding:15px;
+  margin-top:50px;
 }
 
 
 
 
   .all-friends-friendlist,.all-users{
-    width:200px;
+    width:400px;
     border: 1px solid black;
     height: 400px;
     padding:20px;
@@ -385,7 +392,8 @@ height:200px;
   .each-user-friends{
     /* background-color: red; */
     padding: 10px;
-    border:1px solid grey;
+    /* border:1px solid grey; */
+    border-top: 1px solid grey;
     margin-top:5px;
     border-radius: 15%;
   }
@@ -398,7 +406,7 @@ height:200px;
   .upcomming-events{
     height:200px;
     width:400px;
-  padding:15px;
+  padding:30px;
   border: 1px solid grey;
   border-radius: 20px;
   box-shadow: 5px 10px #888888;
@@ -410,8 +418,13 @@ height:200px;
   }
 
   .add-remove-friend{
-    padding:3px;
+    padding:5px;
     border-radius: 10px;
+  }
+
+  .add-remove-friend:hover{
+    background: rgb(53, 53, 158);
+    color: white;
   }
 
   .not-accepted{
@@ -424,6 +437,7 @@ height:200px;
 
   .my-mod_component{
     padding-top: 30px;
+    margin-left:40px;
     width:1000px;
     display: flex;
     flex-direction: row;
@@ -476,6 +490,8 @@ height:200px;
   }
 
   .two-user-messages-form{
+    /* margin:0 auto; */
+    margin-left:20%;
     align-content: center;
   }
 

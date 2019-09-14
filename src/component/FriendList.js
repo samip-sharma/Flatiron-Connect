@@ -46,7 +46,7 @@ class FriendList extends React.Component{
                                 <img style={{height:"10px"}} src="https://t4.rbxcdn.com/febc68c16e64ba11fa26981649a3ecf5" alt="offline" />
 
                                 }
-                                {user.name}
+                                <span className="user-name">{user.name}</span>
                             </div>
                             <button className="add-remove-friend" onClick={()=>this.handleRemoveFriend(user.id)}> Remove Friend</button>
                         </div>)}
@@ -65,7 +65,7 @@ class FriendList extends React.Component{
                         <img style={{height:"10px"}} src="https://t4.rbxcdn.com/febc68c16e64ba11fa26981649a3ecf5" alt="offline" />
 
                     }
-                        {user.name}
+                        <span className="user-name">{user.name}</span>
                         </div>
                         <button className="add-remove-friend" onClick={()=>this.handleAddFriend(user.id)}>ADD FRIEND</button>
                         </div>)}

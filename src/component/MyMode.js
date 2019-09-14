@@ -55,7 +55,7 @@ class MyMode extends React.Component{
             modName=this.props.loggedIn_user.mod.name
         }
          arr=arr.map((user)=>{
-           return <li onClick={()=>this.handleUserClick(user.id)}>{user.name}</li>
+           return <li className="user-name" onClick={()=>this.handleUserClick(user.id)}>{user.name}</li>
         })
         console.log(this.props)
         return(
@@ -80,7 +80,7 @@ class MyMode extends React.Component{
                     <div className="tweets">
                         Mod Tweets
                         <ul>
-                        {this.props.all_mod_tweets.map(tweet=><li>{tweet.user.name}-{tweet.content}</li>)}
+                        {this.props.all_mod_tweets.map(tweet=><li><span onClick={()=>this.handleUserClick(tweet.user.id)} className="user-name">{tweet.user.name}</span>-{tweet.content}</li>)}
                         </ul>
                     </div>
 

@@ -52,9 +52,10 @@ class App extends React.Component {
   }
 
   handleReceivedMessage=(data)=>{
+    // debugger
     console.log("got msg from action cable")
     // if (data.id===this.props.global_messages[this.props.global_messages.length-1].id){
-      // this.props.sendGlobalMessage(data)
+      this.props.sendGlobalMessage(data)
     // }
 }
 
@@ -70,7 +71,7 @@ class App extends React.Component {
         />
       <Switch>
         <Route exact path='/' render={(routerProps)=> <Login  {...routerProps} handleLoginSubmit={this.handleLoginSubmit} />} />
-        <Route exact path='/calender' render={(routerProps)=> <Calender addNewEvent={this.props.addNewEvent} getModEvents={this.props.getModEvents} all_mod_events={this.processEventDates()}  {...routerProps}  />} />
+        <Route exact path='/calender' render={(routerProps)=> <Calender addNewEvent={this.props.addNewEvent} loggedIn_user={this.props.loggedIn_user} getModEvents={this.props.getModEvents} all_mod_events={this.processEventDates()}  {...routerProps}  />} />
         <Route exact path='/home'
         render={(routerProps)=>
 

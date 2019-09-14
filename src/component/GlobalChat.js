@@ -9,15 +9,15 @@ class GlobalChat extends React.Component{
         text:''
     }
 
-    loop = setInterval(() => {
-      console.log("poling activate")
-      this.props.getGlobalMessage()
-    },2000)
+    // loop = setInterval(() => {
+    //   console.log("poling activate")
+    //   this.props.getGlobalMessage()
+    // },1000)
 
 
- componentWillUnmount(){
-  clearInterval(this.loop)
- }
+//  componentWillUnmount(){
+//   clearInterval(this.loop)
+//  }
 
     componentDidMount(){
         this.props.getGlobalMessage()
@@ -58,7 +58,7 @@ class GlobalChat extends React.Component{
         let messageArr
         if (this.props.global_messages.length>0){
             messageArr=this.props.global_messages.map((message)=>{
-                return<p key={message.id}>{message.user.name}-{message.text}</p>
+                return<p key={message.id}><span className="user-name">{message.user.name}</span>-{message.text}</p>
             })
         }
         return(

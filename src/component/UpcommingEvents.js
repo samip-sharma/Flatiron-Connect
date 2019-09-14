@@ -16,11 +16,17 @@ import {connect} from 'react-redux'
         })
         return(
             <div className="upcomming-events">
-                <h4>Upcomming Events</h4>
-                <br />
-                <ul>
-                {arr.length>=0? arr :"No upcomming events"}
-                </ul>
+                {this.props.loggedIn_user.user_mod && this.props.loggedIn_user.user_mod.accepted?
+                <div> 
+                    <h4>Upcomming Events</h4>
+                    <br />
+                    <ul>
+                    {arr.length>0? arr :"No upcomming events"}
+                    </ul>
+                </div>
+                :        
+                "Not accepted to Mod yet"   
+                }
             </div>
         )
     }
@@ -29,7 +35,8 @@ import {connect} from 'react-redux'
 
 const mapStateToProps=(state)=>{
     return {
-      all_mod_events:state.all_mod_events
+      all_mod_events:state.all_mod_events,
+      loggedIn_user:state.loggedIn_user
     }
   }
   

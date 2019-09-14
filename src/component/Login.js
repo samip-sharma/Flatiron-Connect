@@ -28,8 +28,8 @@ export default class Login extends React.Component{
                     </h3>
                 <div className="login-form">
                 <form onSubmit={ this.handleLoginSubmit }>
-                    <input onChange={ this.handleInputChange } value={ this.state.user_name } type="text" placeholder="User Name" name="user_name"/>
-                    <input onChange={ this.handleInputChange } value={ this.state.password }  type="password" placeholder="Password" name="password"/>
+                    <input onChange={ this.handleInputChange } value={ this.state.user_name } type="text" placeholder="User Name" name="user_name" required/>
+                    <input onChange={ this.handleInputChange } value={ this.state.password }  type="password" placeholder="Password" name="password" required/>
                     <input type="submit" value="submit"/>
                     <button className="login-register" onClick={()=>{this.props.history.push('/register')}}>Register</button>
                     </form>
