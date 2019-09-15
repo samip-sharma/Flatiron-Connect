@@ -9,14 +9,13 @@ import Profile from './component/Profile'
 import Setting from './component/Setting'
 import Admin from './component/Admin'
 import Chat from './component/Chat'
-import { ActionCable, ActionCableConsumer } from 'react-actioncable-provider';
+import { ActionCable } from 'react-actioncable-provider';
 
 import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {login,register,sendGlobalMessage, allTweets,getAllFriends,getModEvents,addNewEvent,addNewTweet} from './redux/action'
 import MyMode from './component/MyMode';
-// import { ActionCableProvider } from 'react-actioncable-provider';
-// import {API_WS_ROOT} from './constants/constants'
+
 
 
 
@@ -44,18 +43,15 @@ class App extends React.Component {
   }
 
   onConnected = () => {
-    console.log("I'm connected")
+    // console.log("I'm connected")
   }
 
   onDisconnected = () => {
-    console.log("I'm disconnected")
   }
 
   handleReceivedMessage=(data)=>{
-    // debugger
-    console.log("got msg from action cable")
     // if (data.id===this.props.global_messages[this.props.global_messages.length-1].id){
-      this.props.sendGlobalMessage(data)
+      // this.props.sendGlobalMessage(data)
     // }
 }
 

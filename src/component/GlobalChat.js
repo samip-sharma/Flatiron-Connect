@@ -9,15 +9,15 @@ class GlobalChat extends React.Component{
         text:''
     }
 
-    // loop = setInterval(() => {
-    //   console.log("poling activate")
-    //   this.props.getGlobalMessage()
-    // },1000)
+    loop = setInterval(() => {
+      console.log("poling activate")
+      this.props.getGlobalMessage()
+    },2000)
 
 
-//  componentWillUnmount(){
-//   clearInterval(this.loop)
-//  }
+ componentWillUnmount(){
+  clearInterval(this.loop)
+ }
 
     componentDidMount(){
         this.props.getGlobalMessage()

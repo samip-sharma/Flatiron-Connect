@@ -9,7 +9,7 @@ export default class ChatBoxForUser extends React.Component{
     loop = setInterval(() => {
         console.log("poling activate")
                 this.props.getChat(localStorage.clicked_user)
-        },1000)
+        },2000)
 
 
    componentWillUnmount(){
