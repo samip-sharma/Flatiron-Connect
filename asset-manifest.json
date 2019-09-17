@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/samip-sharma/flatiron-connect/static/css/main.be7817ec.chunk.css",
-    "main.js": "/samip-sharma/flatiron-connect/static/js/main.149d92bc.chunk.js",
-    "main.js.map": "/samip-sharma/flatiron-connect/static/js/main.149d92bc.chunk.js.map",
-    "runtime~main.js": "/samip-sharma/flatiron-connect/static/js/runtime~main.40353838.js",
-    "runtime~main.js.map": "/samip-sharma/flatiron-connect/static/js/runtime~main.40353838.js.map",
-    "static/css/2.da7e1d9f.chunk.css": "/samip-sharma/flatiron-connect/static/css/2.da7e1d9f.chunk.css",
-    "static/js/2.4730d992.chunk.js": "/samip-sharma/flatiron-connect/static/js/2.4730d992.chunk.js",
-    "static/js/2.4730d992.chunk.js.map": "/samip-sharma/flatiron-connect/static/js/2.4730d992.chunk.js.map",
-    "index.html": "/samip-sharma/flatiron-connect/index.html",
-    "precache-manifest.966870b46b09edad19d426d629f030df.js": "/samip-sharma/flatiron-connect/precache-manifest.966870b46b09edad19d426d629f030df.js",
-    "service-worker.js": "/samip-sharma/flatiron-connect/service-worker.js",
-    "static/css/2.da7e1d9f.chunk.css.map": "/samip-sharma/flatiron-connect/static/css/2.da7e1d9f.chunk.css.map",
-    "static/css/main.be7817ec.chunk.css.map": "/samip-sharma/flatiron-connect/static/css/main.be7817ec.chunk.css.map",
-    "static/media/mdb.css": "/samip-sharma/flatiron-connect/static/media/arrow_right.8ef6a08c.svg",
-    "static/media/all.min.css": "/samip-sharma/flatiron-connect/static/media/fa-solid-900.d6d8d5da.woff2"
+    "main.css": "/flatiron-connect/static/css/main.be7817ec.chunk.css",
+    "main.js": "/flatiron-connect/static/js/main.9ebb4fb3.chunk.js",
+    "main.js.map": "/flatiron-connect/static/js/main.9ebb4fb3.chunk.js.map",
+    "runtime~main.js": "/flatiron-connect/static/js/runtime~main.1a6ea303.js",
+    "runtime~main.js.map": "/flatiron-connect/static/js/runtime~main.1a6ea303.js.map",
+    "static/css/2.982db81f.chunk.css": "/flatiron-connect/static/css/2.982db81f.chunk.css",
+    "static/js/2.e7c09a55.chunk.js": "/flatiron-connect/static/js/2.e7c09a55.chunk.js",
+    "static/js/2.e7c09a55.chunk.js.map": "/flatiron-connect/static/js/2.e7c09a55.chunk.js.map",
+    "index.html": "/flatiron-connect/index.html",
+    "precache-manifest.820082786f276772019e56bf44e1e06c.js": "/flatiron-connect/precache-manifest.820082786f276772019e56bf44e1e06c.js",
+    "service-worker.js": "/flatiron-connect/service-worker.js",
+    "static/css/2.982db81f.chunk.css.map": "/flatiron-connect/static/css/2.982db81f.chunk.css.map",
+    "static/css/main.be7817ec.chunk.css.map": "/flatiron-connect/static/css/main.be7817ec.chunk.css.map",
+    "static/media/mdb.css": "/flatiron-connect/static/media/arrow_right.8ef6a08c.svg",
+    "static/media/all.min.css": "/flatiron-connect/static/media/fa-solid-900.d6d8d5da.woff2"
   }
 }
