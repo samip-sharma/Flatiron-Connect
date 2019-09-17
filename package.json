@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "gh-pages": "^2.1.1",
     "mdbreact": "^4.19.2",
     "moment": "^2.24.0",
     "react": "^16.9.0",
@@ -16,7 +15,7 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
-  "homepage": "https://github.com/samip-sharma/flatiron-connect",
+  "homepage": "https://samip-sharma.github.io/flatiron-connect/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -39,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }

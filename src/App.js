@@ -66,12 +66,7 @@ class App extends React.Component {
       <Switch>
         <Route exact path='/' render={(routerProps)=> <Login  {...routerProps} handleLoginSubmit={this.handleLoginSubmit} />} />
         <Route exact path='/calender' render={(routerProps)=> <Calender addNewEvent={this.props.addNewEvent} loggedIn_user={this.props.loggedIn_user} getModEvents={this.props.getModEvents} all_mod_events={this.processEventDates()}  {...routerProps}  />} />
-        <Route exact path='/home'
-        render={(routerProps)=>
-
-         <Home loggedIn_user={this.props.loggedIn_user} allTweets={this.props.allTweets} addNewTweet={this.props.addNewTweet} getModEvents={this.props.getModEvents} all_tweets={this.props.all_tweets}   {...routerProps}  />
-         } />
-
+        <Route exact path='/home' render={(routerProps)=> <Home loggedIn_user={this.props.loggedIn_user} allTweets={this.props.allTweets} addNewTweet={this.props.addNewTweet} getModEvents={this.props.getModEvents} all_tweets={this.props.all_tweets}   {...routerProps}  /> } />
         <Route exact path='/friends' render={(routerProps)=> <FriendList all_friends={this.props.all_friends} getAllFriends={this.props.getAllFriends}  {...routerProps}  />} />
         <Route  path='/register' render={(routerProps)=> <Register  {...routerProps} handleRegisterSubmit={this.handleRegisterSubmit} />} />
         <Route  path='/profile' render={(routerProps)=> <Profile  {...routerProps}  />} />
