@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/samip-sharma/flatiron-connect/static/css/main.be7817ec.chunk.css",
+    "main.js": "/samip-sharma/flatiron-connect/static/js/main.149d92bc.chunk.js",
+    "main.js.map": "/samip-sharma/flatiron-connect/static/js/main.149d92bc.chunk.js.map",
+    "runtime~main.js": "/samip-sharma/flatiron-connect/static/js/runtime~main.40353838.js",
+    "runtime~main.js.map": "/samip-sharma/flatiron-connect/static/js/runtime~main.40353838.js.map",
+    "static/css/2.da7e1d9f.chunk.css": "/samip-sharma/flatiron-connect/static/css/2.da7e1d9f.chunk.css",
+    "static/js/2.4730d992.chunk.js": "/samip-sharma/flatiron-connect/static/js/2.4730d992.chunk.js",
+    "static/js/2.4730d992.chunk.js.map": "/samip-sharma/flatiron-connect/static/js/2.4730d992.chunk.js.map",
+    "index.html": "/samip-sharma/flatiron-connect/index.html",
+    "precache-manifest.966870b46b09edad19d426d629f030df.js": "/samip-sharma/flatiron-connect/precache-manifest.966870b46b09edad19d426d629f030df.js",
+    "service-worker.js": "/samip-sharma/flatiron-connect/service-worker.js",
+    "static/css/2.da7e1d9f.chunk.css.map": "/samip-sharma/flatiron-connect/static/css/2.da7e1d9f.chunk.css.map",
+    "static/css/main.be7817ec.chunk.css.map": "/samip-sharma/flatiron-connect/static/css/main.be7817ec.chunk.css.map",
+    "static/media/mdb.css": "/samip-sharma/flatiron-connect/static/media/arrow_right.8ef6a08c.svg",
+    "static/media/all.min.css": "/samip-sharma/flatiron-connect/static/media/fa-solid-900.d6d8d5da.woff2"
+  }
+}
