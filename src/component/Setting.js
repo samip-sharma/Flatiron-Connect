@@ -50,7 +50,6 @@ import NavBar from './Navbar'
 
 
     render(){
-        // console.log(this.handleSubmit())
         return(
             <React.Fragment>
                 <NavBar />

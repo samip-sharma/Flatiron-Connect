@@ -9,8 +9,6 @@ import Profile from './component/Profile'
 import Setting from './component/Setting'
 import Admin from './component/Admin'
 import Chat from './component/Chat'
-import { ActionCable } from 'react-actioncable-provider';
-
 import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {login,register,sendGlobalMessage, allTweets,getAllFriends,getModEvents,addNewEvent,addNewTweet} from './redux/action'
@@ -42,29 +40,29 @@ class App extends React.Component {
    })
   }
 
-  onConnected = () => {
-    // console.log("I'm connected")
-  }
+//   onConnected = () => {
+//     // console.log("I'm connected")
+//   }
 
-  onDisconnected = () => {
-  }
+//   onDisconnected = () => {
+//   }
 
-  handleReceivedMessage=(data)=>{
-    // if (data.id===this.props.global_messages[this.props.global_messages.length-1].id){
-      // this.props.sendGlobalMessage(data)
-    // }
-}
+//   handleReceivedMessage=(data)=>{
+//     // if (data.id===this.props.global_messages[this.props.global_messages.length-1].id){
+//       // this.props.sendGlobalMessage(data)
+//     // }
+// }
 
   render() {
     return (
       <React.Fragment>
-            <ActionCable
+            {/* <ActionCable
           key={localStorage.current_user}
             channel={{ channel: 'GlobalMessagesChannel', user: localStorage.current_user }}
             onReceived={this.handleReceivedMessage}
             onConnected={this.onConnected}
             onDisconnected={this.onDisconnected}
-        />
+        /> */}
       <Switch>
         <Route exact path='/' render={(routerProps)=> <Login  {...routerProps} handleLoginSubmit={this.handleLoginSubmit} />} />
         <Route exact path='/calender' render={(routerProps)=> <Calender addNewEvent={this.props.addNewEvent} loggedIn_user={this.props.loggedIn_user} getModEvents={this.props.getModEvents} all_mod_events={this.processEventDates()}  {...routerProps}  />} />

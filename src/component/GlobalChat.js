@@ -10,7 +10,6 @@ class GlobalChat extends React.Component{
     }
 
     loop = setInterval(() => {
-      console.log("poling activate")
       this.props.getGlobalMessage()
     },2000)
 
@@ -54,7 +53,6 @@ class GlobalChat extends React.Component{
     render(){
         var objDiv = document.querySelector(".global-messages")
         if (objDiv) {objDiv.scrollTop = objDiv.scrollHeight};
-        // console.log(this.props)
         let messageArr
         if (this.props.global_messages.length>0){
             messageArr=this.props.global_messages.map((message)=>{

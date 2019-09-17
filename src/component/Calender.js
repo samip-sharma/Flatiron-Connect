@@ -49,7 +49,6 @@ class Calender extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <React.Fragment>
         <Navbar/>

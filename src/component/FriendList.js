@@ -28,7 +28,6 @@ class FriendList extends React.Component{
     }
 
     render(){
-        console.log(this.props)
         let arrOfFriendsId=this.props.all_friends.map((user)=>user.id)
         let notfriend=this.props.all_users.filter((user)=>!(arrOfFriendsId.includes(user.id) || user.id===parseInt(localStorage.current_user) ))
         return(

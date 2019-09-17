@@ -57,7 +57,6 @@ class MyMode extends React.Component{
          arr=arr.map((user)=>{
            return <li className="user-name" onClick={()=>this.handleUserClick(user.id)}>{user.name}</li>
         })
-        console.log(this.props)
         return(
             <React.Fragment>
                 <Navbar />

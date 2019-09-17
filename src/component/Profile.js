@@ -62,7 +62,6 @@ class Profile extends React.Component{
 
 
     render(){
-        console.log(this.props)
         let userTweet=[]
         let userBlogs=[]
         const { user_name, name,working_at}=this.props.current_user

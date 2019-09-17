@@ -19,7 +19,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 
-ReactDOM.render(<ActionCableProvider url={API_WS_ROOT} ><Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider></ActionCableProvider>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter> <Provider store={store}><App /></Provider></BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -27,4 +27,7 @@ ReactDOM.render(<ActionCableProvider url={API_WS_ROOT} ><Provider store={store}>
 serviceWorker.unregister();
 
 
+// #for action cable
+
+{/* <ActionCableProvider url={API_WS_ROOT} ></ActionCableProvider> */}
 // +`?user=${localStorage.current_user}`

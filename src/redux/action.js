@@ -116,7 +116,6 @@ export const addNewTweet=(state)=>{
           })
           .then(resp =>resp.json())
           .then(data=>{
-              console.log(data)
             if(!data.error){
                 dispatch({"type":ADD_NEW_TWEET,payload:data})
             }
@@ -232,7 +231,6 @@ export const createNewMod=(state)=>{
           })
           .then(resp =>resp.json())
           .then(data=>{
-            //   console.log(data)
             if(!data.error){
                 dispatch({"type":CREATE_NEW_MOD,payload:data})
             }
@@ -271,7 +269,6 @@ export const acceptModUser=(body)=>{
           })
           .then(resp =>resp.json())
           .then(data=>{
-            //   console.log(data)
             if(!data.error){
                 dispatch({"type":ACCEPT_PENDING_USER,payload:data})
             }
@@ -295,7 +292,6 @@ export const rejectModUser=(body)=>{
           })
           .then(resp =>resp.json())
           .then(data=>{
-            //   console.log(data)
             if(!data.error){
                 dispatch({"type":REJECT_PENDING_USER,payload:data})
             }
@@ -325,13 +321,11 @@ export const addFriend=(following_id,being_followed_id)=>{
             },
             body:JSON.stringify(
               {following:following_id,
-            
-            being_followed:being_followed_id}
+               being_followed:being_followed_id}
             )
           })
           .then(resp =>resp.json())
           .then(data=>{
-            //   console.log(data)
             if(!data.error){
                 dispatch({"type":ADD_FRIEND,payload:data})
             }
@@ -351,17 +345,16 @@ export const removeFriend=(following_id,being_followed_id)=>{
             },
             body:JSON.stringify(
               {following:following_id,
-            
-            being_followed:being_followed_id}
+             being_followed:being_followed_id}
             )
           })
           .then(resp =>resp.json())
           .then(data=>{
-            //   console.log(data)
             if(!data.error){
                 dispatch({"type":REMOVE_FRIEND,payload:data})
             }
         })
+        .catch(console.log)
     }
 }
 
