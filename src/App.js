@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {login,register,sendGlobalMessage, allTweets,getAllFriends,getModEvents,addNewEvent,addNewTweet} from './redux/action'
 import MyMode from './component/MyMode';
+// import { ActionCable } from 'react-actioncable-provider';
 
 
 
