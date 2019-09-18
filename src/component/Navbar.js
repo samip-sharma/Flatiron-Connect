@@ -21,7 +21,7 @@ class Navbar extends React.Component {
                     <Link to="/calender" >Calender</Link>
                     <Link to="/friends" >Friends</Link>
                     <Link to="/mymod" >My Mod</Link>
-                    <a onClick={()=>localStorage.clicked_user=localStorage.current_user} href="/profile" >Profile</a>
+                    <a onClick={()=>localStorage.clicked_user=localStorage.current_user} href="/flatiron-connect/#/profile" >Profile</a>
                     <Link to="/setting" >Setting</Link>
                     {this.props.loggedIn_user.admin ?
                     <Link to="/admin" >AdminSection</Link>
