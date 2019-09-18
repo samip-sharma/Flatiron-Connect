@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/flatiron-connect/precache-manifest.820082786f276772019e56bf44e1e06c.js"
+  "/flatiron-connect/precache-manifest.27384eb6fd3149ab22c647c8371dbb30.js"
 );
 
 self.addEventListener('message', (event) => {
