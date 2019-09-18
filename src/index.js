@@ -29,5 +29,5 @@ serviceWorker.unregister();
 
 // #for action cable
 
-{/* <ActionCableProvider url={API_WS_ROOT} ></ActionCableProvider> */}
+// {/* <ActionCableProvider url={API_WS_ROOT} ></ActionCableProvider> */}
 // +`?user=${localStorage.current_user}`
