@@ -8,17 +8,6 @@ import { MDBBtn } from "mdbreact";
 
 class Chat extends React.Component {
 
-// loop = setInterval(() => {
-
-//     console.log("looping")
-//     this.props.getAllFriends()
-// },2000)
-
-
-// componentWillUnmount(){
-//     clearInterval(this.loop)
-// }
-
     componentDidMount(){
         this.props.getLoggedInUser()
         this.props.getAllFriends()     
@@ -46,7 +35,6 @@ class Chat extends React.Component {
             clicked:true,
             global:false
         })
-        // this.props.history.push("/profile")
     }
 
 

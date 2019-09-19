@@ -26,10 +26,6 @@ import NavBar from './Navbar'
         })
     }
 
-     refreshPage() {
-        // window.location.reload(false);
-      }
-
     componentDidMount(){
         this.props.getAllMod()
         this.props.getLoggedInUser()
@@ -38,14 +34,7 @@ import NavBar from './Navbar'
     handleSubmit= (e)=>{
         e.preventDefault()
         this.props.editCurrentUser(this.state)
-        // this.setState({
-        // name:'',
-        // user_name:'',
-        // working_at:'',
-        // password:''
-        // })
         alert("saves changed")
-        // this.props.getLoggedInUser()
     }
 
 

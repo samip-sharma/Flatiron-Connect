@@ -29,7 +29,6 @@ class Admin extends React.Component {
   }
 
   handleUserAccept=(id)=>{
-    // debugger
     this.props.acceptModUser({id:id})
   }
 

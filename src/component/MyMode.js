@@ -44,10 +44,7 @@ class MyMode extends React.Component{
     }
     render(){
         let arr=this.props.all_mod_friends.filter((user)=>{
-            // debugger
             return user.user_mod.accepted
-        //    return parseInt(user.id)!==parseInt(localStorage.current_user)
-        // return user
         })
         let modName
 

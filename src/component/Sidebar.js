@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {} from '../redux/action'
 import Chat from './Chat'
 
 class Sidebar extends React.Component{
@@ -24,7 +23,6 @@ class Sidebar extends React.Component{
             <div className="friend-list">
 
             <Chat />
-            {/* <UpcommingEvents /> */}
             </div>
             </div>
         )

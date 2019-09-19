@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-// import {HEADERS,API} from '../constants/constants'
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Navbar from './Navbar'
 import UpcommingEvents from "./UpcommingEvents";
-// import addNewEvent from '../redux/action'
 
-// import events from "./eventexample";
 const localizer = momentLocalizer(moment)
 
 class Calender extends Component {
@@ -22,10 +19,10 @@ class Calender extends Component {
   
   onSubmit=(e)=>{
     e.preventDefault()
-   if(this.state.start_date.split("-").length===3 &&
-   this.state.end_date.split("-").length===3 &&
-   this.state.start_time.split(":").length===2 &&
-   this.state.end_time.split(":").length===2 
+   if(this.state.start_date.split("-").length === 3 &&
+   this.state.end_date.split("-").length === 3 &&
+   this.state.start_time.split(":").length === 2 &&
+   this.state.end_time.split(":").length === 2 
    ) {this.props.addNewEvent(this.state)
    }
   }
@@ -37,9 +34,7 @@ class Calender extends Component {
   }
 
   componentDidMount=()=>{
-    // if(this.props.all_mod_events.length===0){
       this.props.getModEvents()
-    // }
   }
 
   

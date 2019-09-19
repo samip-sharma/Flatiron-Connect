@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {getCurrentUser,troggleWorking,addBlog} from '../redux/action'
 import Navbar from './Navbar';
 import ProfilePic from './ProfilPic'
-// import { MDBBtn } from "mdbreact";
 
 
 

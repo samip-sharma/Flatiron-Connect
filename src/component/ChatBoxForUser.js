@@ -77,13 +77,3 @@ export default class ChatBoxForUser extends React.Component{
         )
     }
 }
-
-
-
-
-
-
-
-// {this.props.two_users_chat.two_users_messages.map((message)=>{
-//     return <p>{message.text}</p>
-//     })}
