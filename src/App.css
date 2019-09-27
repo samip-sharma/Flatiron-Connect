@@ -76,4 +76,10 @@ input[type="submit"], .login-register {
   align-self: center
 }
 
+@media only screen and (max-width: 1500px) {
+  .side-bar {
+    display: none;
+  }
+}
+
 
