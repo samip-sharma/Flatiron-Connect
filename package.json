@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "mdbreact": "^4.19.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.9.0",
     "react-actioncable-provider": "^2.0.0",
     "react-big-calendar": "^0.22.0",
